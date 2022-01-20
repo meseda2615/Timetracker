@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct TimeApp: App {
+    
+    
+    init() {
+        initServiceLocator()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            MainView(viewModel: MainViewModel())
+            MainView(viewModel: MainViewModel(userDefaultsStorage: ServiceLocator.shared.getService()))
         }
+    }
+    
+    
+    private func initServiceLocator() {
+        ServiceLocator.shared.addService(service: UserStorageService())
     }
 }

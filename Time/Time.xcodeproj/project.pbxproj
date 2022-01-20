@@ -19,6 +19,8 @@
 		05CF0F552799B53400215CD8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F542799B53400215CD8 /* HomeView.swift */; };
 		05CF0F572799B54E00215CD8 /* View+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F562799B54E00215CD8 /* View+extensions.swift */; };
 		05CF0F592799B56D00215CD8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F582799B56D00215CD8 /* MainViewModel.swift */; };
+		05CF0F5D2799B83F00215CD8 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F5C2799B83F00215CD8 /* UserDefaultsStorage.swift */; };
+		05CF0F602799B91C00215CD8 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F5F2799B91C00215CD8 /* ServiceLocator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		05CF0F542799B53400215CD8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		05CF0F562799B54E00215CD8 /* View+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+extensions.swift"; sourceTree = "<group>"; };
 		05CF0F582799B56D00215CD8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		05CF0F5C2799B83F00215CD8 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		05CF0F5F2799B91C00215CD8 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 		053A8FA22791B20600C9FE8F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				05CF0F5A2799B82B00215CD8 /* Services */,
 				053A8FC72791B37800C9FE8F /* App */,
 				053A8FCA2791B39D00C9FE8F /* Screens */,
 				053A8FC12791B33900C9FE8F /* Utils */,
@@ -154,6 +159,31 @@
 				05CF0F542799B53400215CD8 /* HomeView.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		05CF0F5A2799B82B00215CD8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				05CF0F5E2799B90F00215CD8 /* ServiceLocator */,
+				05CF0F5B2799B83100215CD8 /* Local */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		05CF0F5B2799B83100215CD8 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				05CF0F5C2799B83F00215CD8 /* UserDefaultsStorage.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		05CF0F5E2799B90F00215CD8 /* ServiceLocator */ = {
+			isa = PBXGroup;
+			children = (
+				05CF0F5F2799B91C00215CD8 /* ServiceLocator.swift */,
+			);
+			path = ServiceLocator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,8 +284,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05CF0F5D2799B83F00215CD8 /* UserDefaultsStorage.swift in Sources */,
 				053A8FC92791B38D00C9FE8F /* Constants.swift in Sources */,
 				05CF0F552799B53400215CD8 /* HomeView.swift in Sources */,
+				05CF0F602799B91C00215CD8 /* ServiceLocator.swift in Sources */,
 				053A8FD02791B3D900C9FE8F /* MainView.swift in Sources */,
 				053A8FC42791B35100C9FE8F /* Color+extensions.swift in Sources */,
 				053A8FCE2791B3C800C9FE8F /* OnBoardingView.swift in Sources */,

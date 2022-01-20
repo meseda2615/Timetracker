@@ -22,6 +22,8 @@ extension TimeOnboardingModel: Hashable {}
 
 struct OnBoardingView: View {
     
+    @EnvironmentObject var viewModel: MainViewModel
+    
     private let onboardingImages = [
         Images.onboardingTrackTime,
         Images.onboardingAnalyseTime,

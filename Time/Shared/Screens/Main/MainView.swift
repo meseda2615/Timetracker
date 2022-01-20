@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var viewModel : MainViewModel
+
+    var viewModel =  MainViewModel(
+        userDefaultsStorage: ServiceLocator.shared.getService()
+    )
     
     var body: some View {
-        OnBoardingView().hidden(viewModel.hasOnboardingSeen)
+        OnBoardingView()
+            .environmentObject(viewModel)
+            .hidden(viewModel.hasOnboardingSeen)
         
         HomeView().hidden(!viewModel.hasOnboardingSeen)
     }
 }
 
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView(viewModel: MainViewModel())
-    }
-}
+

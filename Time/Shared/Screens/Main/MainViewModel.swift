@@ -14,4 +14,20 @@ final class MainViewModel:  ObservableObject {
     @Published var hasOnboardingSeen: Bool = false
     
     
+    private let userDefaultsStorage: UserStorageService?
+    
+    init(userDefaultsStorage: UserStorageService?) {
+        self.userDefaultsStorage = userDefaultsStorage
+        
+        hasOnboardingSeen = userDefaultsStorage?.getIsOnBoardingSeen() ?? false
+    }
+    
+    
+    
+    
+    func setSeenOnBoarding() {
+        userDefaultsStorage?.setIsonBoardingSeen()
+    }
+    
+    
 }
