@@ -10,6 +10,8 @@ import Foundation
 
 enum Actions {
     static let start = "Start"
+    static let saveAndStart = "Save and start"
+    static let save = "Save"
 }
 
 
@@ -20,6 +22,7 @@ enum Titles {
     static let liveYourTime = "Live your time"
     
     static let howLongdidYouSleep = "How long did you sleep today?"
+    static let whatDoYouWantToAdd = "What time do you want to add?"
 }
 
 enum Messages {

@@ -15,18 +15,18 @@ import SwiftUI
 
 // MARK: - Model
 
-enum TimeFilter {
-    case sixHours
-    case sevenHours
-    case eightHours
+enum TimeFilter: String {
+    case sixHours = "6 hours"
+    case sevenHours = "7 hours"
+    case eightHours = "8 hours"
     
     
-    case thirtyMin
-    case oneHour
-    case twoHours
-
+    case thirtyMin = "30 min"
+    case oneHour = "1 hour"
+    case twoHours = "2 hours"
     
-    case other
+    
+    case other = "Other"
     
 }
 
@@ -37,9 +37,15 @@ enum TimeFilter {
 struct CategoryDetailsView: View {
     
     
-//    private let filters = [
-//
-//    ]
+    var category: TimeCategory
+    
+    //    private let filters = [
+    //
+    //    ]
+    
+    
+    
+    
     
     var body: some View {
         VStack {
@@ -50,20 +56,17 @@ struct CategoryDetailsView: View {
                 .ignoresSafeArea()
                 .screenHeight(0.6)
             
-                
-            Text(Titles.howLongdidYouSleep)
+            // need to make bottom part constant height and resize image
+            Text(category == .sleep ? Titles.howLongdidYouSleep : Titles.whatDoYouWantToAdd)
                 .font(.spartanTitle)
                 .padding(.top,33)
-                
             
-//            HStack {
-//                ForEach(
-//            }
+            
+            TimeFiltersView(category: category)
             
             // Need to use here commont button
-            Button(action: {}) {
-                Text("Some Button")
-            }
+            TimeButtonView(text: category == .sleep ? Actions.saveAndStart : Actions.save, onClick: {})
+            .padding(.bottom,40)
             Spacer()
         }
         .fillMaxSize()
@@ -71,8 +74,63 @@ struct CategoryDetailsView: View {
     }
 }
 
+
+// MARK: - FiltersView
+struct TimeFiltersView: View {
+    
+    var category: TimeCategory
+    
+    var filters: [TimeFilter] {
+        category == .sleep ? [
+            .sixHours,
+            .sevenHours,
+            .eightHours,
+            .other
+        ] :
+        
+        [
+            .thirtyMin,
+            .oneHour,
+            .twoHours,
+            .other
+        ]
+    }
+    
+    
+    var filterColors: [Color] = [
+        .Tyellow,
+        .Tpurple,
+        .Tgreen,
+        .Tyellow
+    ]
+    
+    var body: some View {
+        HStack {
+            ForEach(0..<filters.count, id: \.self) { i in
+                TimeFilterItem(
+                    text: filters[i].rawValue,
+                    color: filterColors[i])
+            }
+        }
+    }
+}
+
+struct TimeFilterItem: View {
+    
+    var text: String
+    var color: Color
+    
+    var body: some View {
+        Text(text)
+            .font(.system(size: 14))
+            .fontWeight(.regular)
+            .frame(width: 70, height: 40, alignment: .center)
+            .addBackGround(color, cornerRadius: 4)
+    }
+}
+
 struct CategoryDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryDetailsView()
+        CategoryDetailsView(category: .sleep)
     }
 }

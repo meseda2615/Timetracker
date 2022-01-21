@@ -24,6 +24,7 @@
 		05CF0F63279A88CB00215CD8 /* CategoryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F62279A88CB00215CD8 /* CategoryDetailsView.swift */; };
 		05CF0F65279A8CF700215CD8 /* ExtensionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F64279A8CF700215CD8 /* ExtensionTestView.swift */; };
 		05CF0F68279A95D300215CD8 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F67279A95D300215CD8 /* CategoryModel.swift */; };
+		05CF0F6B279A9A1C00215CD8 /* TimeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F6A279A9A1C00215CD8 /* TimeButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		05CF0F62279A88CB00215CD8 /* CategoryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsView.swift; sourceTree = "<group>"; };
 		05CF0F64279A8CF700215CD8 /* ExtensionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTestView.swift; sourceTree = "<group>"; };
 		05CF0F67279A95D300215CD8 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		05CF0F6A279A9A1C00215CD8 /* TimeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		053A8FA22791B20600C9FE8F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				05CF0F69279A9A0D00215CD8 /* Common */,
 				05CF0F5A2799B82B00215CD8 /* Services */,
 				053A8FC72791B37800C9FE8F /* App */,
 				053A8FCA2791B39D00C9FE8F /* Screens */,
@@ -203,6 +206,14 @@
 			path = CategoryDetails;
 			sourceTree = "<group>";
 		};
+		05CF0F69279A9A0D00215CD8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				05CF0F6A279A9A1C00215CD8 /* TimeButtonView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -311,6 +322,7 @@
 				053A8FCE2791B3C800C9FE8F /* OnBoardingView.swift in Sources */,
 				053A8FC62791B35D00C9FE8F /* Font+Extension.swift in Sources */,
 				05CF0F572799B54E00215CD8 /* View+extensions.swift in Sources */,
+				05CF0F6B279A9A1C00215CD8 /* TimeButtonView.swift in Sources */,
 				053A8FB32791B20700C9FE8F /* TimeApp.swift in Sources */,
 				05CF0F68279A95D300215CD8 /* CategoryModel.swift in Sources */,
 				05CF0F592799B56D00215CD8 /* MainViewModel.swift in Sources */,

@@ -53,7 +53,7 @@ struct OnBoardingView: View {
                         .renderingMode(.original)
                         .resizable()
                         .aspectRatio( contentMode: .fill)
-                        .frame(width: UIScreen.main.bounds.width)
+                        .fillMaxWidth()
                         .ignoresSafeArea()
                     // here logic to update description when swiping image ends
                         .onDisappear {
@@ -107,17 +107,8 @@ private struct OnboardingDescriptionView: View {
             
             if (model.isStartButtonItem) {
              
-                
-                Button(action: { viewModel.setSeenOnBoarding() }) {
-                    Text(Actions.start)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(Color.white)
-                        .background(Color.black)
-                        .cornerRadius(8)
-                        
-                }
-                .frame(width: UIScreen.main.bounds.width - 32)
+                // common Button
+                TimeButtonView(text: Actions.start, onClick: viewModel.setSeenOnBoarding)
                 .padding(.bottom,40)
             }
            
@@ -126,7 +117,7 @@ private struct OnboardingDescriptionView: View {
         }
         .padding(.horizontal, 16)
         .multilineTextAlignment(.center)
-        .frame(height:UIScreen.main.bounds.height * 0.30)
+        .screenHeight(0.3)
         .animation(.linear(duration: 0.2), value: model)
     
         

@@ -11,6 +11,7 @@ import Combine
 
 final class MainViewModel:  ObservableObject {
     
+    // reRender View when set new value  wich contains this ViewModel like ObservedObject
     @Published var hasOnboardingSeen: Bool = false
     
     

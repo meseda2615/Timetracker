@@ -14,6 +14,7 @@ struct MainView: View {
     var body: some View {
         
         OnBoardingView()
+        // i can pass same viewmodle to several view deep
             .environmentObject(viewModel)
             .hidden(viewModel.hasOnboardingSeen)
         

@@ -29,6 +29,12 @@ extension View {
     func screenWidth(_ factor: CGFloat = 1.0) -> some View {
         frame(width: UIScreen.main.bounds.width * factor)
     }
+    func screenWidthMinus(_ factor: CGFloat = 0.0) -> some View {
+        frame(width: UIScreen.main.bounds.width - factor)
+    }
+    func screenHeightMinus(_ factor: CGFloat = 0.0) -> some View {
+        frame(height: UIScreen.main.bounds.height - factor)
+    }
 }
 
 
@@ -41,6 +47,11 @@ extension View {
 extension View {
     public func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S : ShapeStyle {
         return overlay(RoundedRectangle(cornerRadius: cornerRadius).strokeBorder(content, lineWidth: width))
+    }
+    
+    public func addBackGround<S>(_ content: S, cornerRadius: CGFloat) -> some View where S : ShapeStyle {
+        return self.background(content)
+                    .cornerRadius(cornerRadius)
     }
 }
 
