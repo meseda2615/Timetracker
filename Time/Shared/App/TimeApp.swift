@@ -11,9 +11,11 @@ import SwiftUI
 struct TimeApp: App {
     
     
+    
     init() {
         initServiceLocator()
     }
+    
     
     var body: some Scene {
         WindowGroup {
@@ -21,7 +23,7 @@ struct TimeApp: App {
         }
     }
     
-    
+    // Need to init all services and get it in any place from code
     private func initServiceLocator() {
         ServiceLocator.shared.addService(service: UserStorageService())
     }

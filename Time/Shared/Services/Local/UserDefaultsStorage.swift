@@ -21,6 +21,7 @@ final class UserStorageService {
     
 }
 
+// MARK: - OnBoarding
 extension UserStorageService {
     
     func getIsOnBoardingSeen() -> Bool {

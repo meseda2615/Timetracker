@@ -27,6 +27,8 @@ final class MainViewModel:  ObservableObject {
     
     func setSeenOnBoarding() {
         userDefaultsStorage?.setIsonBoardingSeen()
+        hasOnboardingSeen = true
+        
     }
     
     

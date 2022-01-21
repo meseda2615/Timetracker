@@ -9,16 +9,15 @@ import SwiftUI
 
 struct MainView: View {
 
-    var viewModel =  MainViewModel(
-        userDefaultsStorage: ServiceLocator.shared.getService()
-    )
+    @ObservedObject var viewModel: MainViewModel
     
     var body: some View {
+        
         OnBoardingView()
             .environmentObject(viewModel)
             .hidden(viewModel.hasOnboardingSeen)
         
-        HomeView().hidden(!viewModel.hasOnboardingSeen)
+        CategoryView().hidden(!viewModel.hasOnboardingSeen)
     }
 }
 

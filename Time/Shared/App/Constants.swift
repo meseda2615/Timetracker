@@ -18,6 +18,8 @@ enum Titles {
     static let trackYourTime = "Track Your Time"
     static let analyseYourTime = "Analyse your time"
     static let liveYourTime = "Live your time"
+    
+    static let howLongdidYouSleep = "How long did you sleep today?"
 }
 
 enum Messages {
@@ -31,5 +33,7 @@ enum Images {
     static let onboardingTrackTime = "onboarding_track_time"
     static let onboardingAnalyseTime = "onboarding_analyse"
     static let onboardingLiveTime = "onboarding_live"
+    
+    static let categoryDetailsImg = "categoryDetailsImg"
 }
 

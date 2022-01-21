@@ -77,6 +77,7 @@ struct OnBoardingView: View {
             
             
             OnboardingDescriptionView(model: onboardingModels[modelIndex])
+                .environmentObject(viewModel)
             
             
             
@@ -88,6 +89,8 @@ struct OnBoardingView: View {
 // MARK: - OnBoardingDescription VIew
 
 private struct OnboardingDescriptionView: View {
+    
+    @EnvironmentObject var viewModel: MainViewModel
     
     var model: TimeOnboardingModel
     
@@ -105,7 +108,7 @@ private struct OnboardingDescriptionView: View {
             if (model.isStartButtonItem) {
              
                 
-                Button(action: {print("Continue Onboarding")}) {
+                Button(action: { viewModel.setSeenOnBoarding() }) {
                     Text(Actions.start)
                         .padding()
                         .frame(maxWidth: .infinity)
