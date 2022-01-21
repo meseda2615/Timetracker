@@ -20,17 +20,29 @@ final class MainViewModel:  ObservableObject {
     init(userDefaultsStorage: UserStorageService?) {
         self.userDefaultsStorage = userDefaultsStorage
         
-        hasOnboardingSeen = userDefaultsStorage?.getIsOnBoardingSeen() ?? false
+        hasOnboardingSeen = getIsOnBoardingSeen()
     }
     
     
     
+    
+    
+    
+    
+}
+
+// MARK: - OnBoarding Logic
+
+extension MainViewModel {
+    
+    
+    private func getIsOnBoardingSeen() -> Bool {
+        userDefaultsStorage?.getIsOnBoardingSeen() ?? false
+    }
     
     func setSeenOnBoarding() {
         userDefaultsStorage?.setIsonBoardingSeen()
         hasOnboardingSeen = true
         
     }
-    
-    
 }

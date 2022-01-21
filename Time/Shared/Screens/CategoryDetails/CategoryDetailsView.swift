@@ -13,22 +13,7 @@ import SwiftUI
 // and if we have the same day and month and year we will not showing this screen
 // but if we have another date we have to show sleep screen first
 
-// MARK: - Model
 
-enum TimeFilter: String {
-    case sixHours = "6 hours"
-    case sevenHours = "7 hours"
-    case eightHours = "8 hours"
-    
-    
-    case thirtyMin = "30 min"
-    case oneHour = "1 hour"
-    case twoHours = "2 hours"
-    
-    
-    case other = "Other"
-    
-}
 
 
 
@@ -37,40 +22,65 @@ enum TimeFilter: String {
 struct CategoryDetailsView: View {
     
     
-    var category: TimeCategory
-    
-    //    private let filters = [
-    //
-    //    ]
-    
-    
-    
+    @ObservedObject var viewModel: CategoryDetailsViewModel
     
     
     var body: some View {
-        VStack {
-            Image(Images.categoryDetailsImg)
-                .resizable()
-                .renderingMode(.original)
+        
+        ZStack(alignment: .top) {
+            VStack(spacing:20) {
+                
+                Image(Images.categoryDetailsImg)
+                    .resizable()
+                    .screenHeight(0.7)
+                    .edgesIgnoringSafeArea(.top)
+                
+                
+                VStack {
+                    
+                    
+                    VStack(spacing: 22) {
+                        Text(viewModel.category == .sleep ? Titles.howLongdidYouSleep : Titles.whatDoYouWantToAdd)
+                            .font(.spartanTitle)
+                        
+                        
+                        // need to add selectable item
+                        TimeFiltersView(
+                            filters: viewModel.filters,
+                            onTappitemIndex: viewModel.setInputAction
+                        )
+                    }
+                    
+                    
+                    Spacer()
+                    
+                    
+                    // Need to use here commont button
+                    TimeButtonView(
+                        text: viewModel.category == .sleep ? Actions.saveAndStart : Actions.save, onClick: {viewModel.setInputAction(.onClickSave)})
+                        .edgesIgnoringSafeArea(.bottom)
+                        .padding(.bottom,10)
+                    
+                    
+                }
+                
                 .fillMaxWidth()
-                .ignoresSafeArea()
-                .screenHeight(0.6)
+                
+                
+                
+            }.fillMaxSize()
+                .edgesIgnoringSafeArea(.top)
+                .background(Color.white)
             
-            // need to make bottom part constant height and resize image
-            Text(category == .sleep ? Titles.howLongdidYouSleep : Titles.whatDoYouWantToAdd)
-                .font(.spartanTitle)
-                .padding(.top,33)
+            TimeNavBarView(leftTitle: viewModel.category.rawValue.capitalized)
             
             
-            TimeFiltersView(category: category)
-            
-            // Need to use here commont button
-            TimeButtonView(text: category == .sleep ? Actions.saveAndStart : Actions.save, onClick: {})
-            .padding(.bottom,40)
-            Spacer()
+        }.onAppear {
+            // if need to change status bar by hands
+            //            UIApplication.shared.statusBarStyle = .darkContent
         }
-        .fillMaxSize()
-        .background(Color.white)
+        
+        
     }
 }
 
@@ -78,59 +88,49 @@ struct CategoryDetailsView: View {
 // MARK: - FiltersView
 struct TimeFiltersView: View {
     
-    var category: TimeCategory
     
-    var filters: [TimeFilter] {
-        category == .sleep ? [
-            .sixHours,
-            .sevenHours,
-            .eightHours,
-            .other
-        ] :
-        
-        [
-            .thirtyMin,
-            .oneHour,
-            .twoHours,
-            .other
-        ]
-    }
-    
-    
-    var filterColors: [Color] = [
-        .Tyellow,
-        .Tpurple,
-        .Tgreen,
-        .Tyellow
-    ]
+    var filters: [TimeFilterModel]
+    var onTappitemIndex: (CardDetailsViewAction) -> Void
     
     var body: some View {
-        HStack {
+        
+        HStack(spacing:8) {
+            
             ForEach(0..<filters.count, id: \.self) { i in
-                TimeFilterItem(
-                    text: filters[i].rawValue,
-                    color: filterColors[i])
+                
+                TimeFilterItem( filterModel: filters[i], onTapitem: {onTappitemIndex(.selectIndex(idx: i))})
+                
             }
         }
+        
     }
 }
 
+// MARK: - Filter Item
 struct TimeFilterItem: View {
     
-    var text: String
-    var color: Color
+    var filterModel: TimeFilterModel
+    
+    var onTapitem: () -> Void
     
     var body: some View {
-        Text(text)
+        Text(filterModel.value.rawValue)
             .font(.system(size: 14))
             .fontWeight(.regular)
             .frame(width: 70, height: 40, alignment: .center)
-            .addBackGround(color, cornerRadius: 4)
+            .addBackGround(filterModel.isSelected ? .Tblack : filterModel.color, cornerRadius: 4)
+            .foregroundColor(filterModel.isSelected ? .white : .Tblack)
+            .onTapGesture {
+                withAnimation(.easeInOut(duration: 0.3),onTapitem)
+            }
     }
 }
 
+
+
+
 struct CategoryDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryDetailsView(category: .sleep)
+        CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: .sleep))
     }
 }

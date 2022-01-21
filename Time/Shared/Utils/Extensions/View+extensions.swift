@@ -10,16 +10,16 @@ import SwiftUI
 
 
 extension View {
-    func fillMaxWidth() -> some View {
-        frame(maxWidth: .infinity)
+    func fillMaxWidth(_ aligment: Alignment = .center) -> some View {
+        frame(maxWidth: .infinity, alignment: aligment)
     }
     
-    func fillMaxHeight() -> some View {
-        frame(maxHeight: .infinity)
+    func fillMaxHeight(_ aligment: Alignment = .center) -> some View {
+        frame(maxHeight: .infinity, alignment: aligment)
     }
     
-    func fillMaxSize() -> some View {
-        frame(maxWidth: .infinity,maxHeight: .infinity)
+    func fillMaxSize(_ aligment: Alignment = .center) -> some View {
+        frame(maxWidth: .infinity,maxHeight: .infinity,alignment: aligment)
     }
     
     func screenHeight(_ factor: CGFloat = 1.0) -> some View {
@@ -34,6 +34,10 @@ extension View {
     }
     func screenHeightMinus(_ factor: CGFloat = 0.0) -> some View {
         frame(height: UIScreen.main.bounds.height - factor)
+    }
+    
+    func size(_ factor: CGFloat) -> some View {
+        frame(width: factor, height: factor)
     }
 }
 
@@ -148,4 +152,23 @@ extension RandomAccessCollection {
     func indexed() -> Array<(offset: Int, element: Element)> {
         Array(enumerated())
     }
+}
+
+
+// MARK: - Status bar
+
+struct StatusBarStyleKey: PreferenceKey {
+  static func reduce(value: inout UIStatusBarStyle?, nextValue: () -> UIStatusBarStyle?) {
+    guard let v = nextValue() else {
+      return
+    }
+    
+    value = v
+  }
+}
+
+extension View {
+  func statusBar(style: UIStatusBarStyle?) -> some View {
+    return preference(key: StatusBarStyleKey.self, value: style)
+  }
 }

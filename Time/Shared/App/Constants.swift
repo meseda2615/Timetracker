@@ -38,5 +38,7 @@ enum Images {
     static let onboardingLiveTime = "onboarding_live"
     
     static let categoryDetailsImg = "categoryDetailsImg"
+    
+    static let menuIcon = "ic_menu"
 }
 

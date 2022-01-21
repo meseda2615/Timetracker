@@ -103,7 +103,8 @@ private struct OnboardingDescriptionView: View {
             Text(model.description)
                 .foregroundColor(Color.Tgray)
                 .font(.spartanBody)
-                .padding(.bottom,model.isStartButtonItem ? 53 : 100)
+                .padding(.bottom,model.isStartButtonItem ? 53 : 70)
+                
             
             if (model.isStartButtonItem) {
              

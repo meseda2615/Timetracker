@@ -15,4 +15,8 @@ extension Font {
     public static var spartanBody: Font {
         return Font.custom("Spartan", size: 14).weight(.regular)
     }
+    
+    public static var spartanMedium: Font {
+        return Font.custom("Spartan", size: 14).weight(.medium)
+    }
 }

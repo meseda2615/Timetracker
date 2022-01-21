@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum TimeCategory {
+enum TimeCategory: String {
     
     
     case sleep

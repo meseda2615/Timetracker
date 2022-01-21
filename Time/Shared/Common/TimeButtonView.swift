@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+
+
+
+
 struct TimeButtonView: View {
     
     var text: String
@@ -17,6 +21,7 @@ struct TimeButtonView: View {
     var body: some View {
         Button(action: onClick) {
             Text(text)
+                .fontWeight(.medium)
                 .padding()
                 .fillMaxWidth()
                 .foregroundColor(Color.white)
@@ -31,6 +36,6 @@ struct TimeButtonView: View {
 
 struct TimeButton_Previews: PreviewProvider {
     static var previews: some View {
-        TimeButtonView(text: "Start", onClick: {})
+        TimeButtonView(text: "Start", onClick: { })
     }
 }
