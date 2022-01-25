@@ -30,3 +30,8 @@ struct TimeFilterModel {
     var color: Color
     var isSelected: Bool = false
 }
+
+
+// Need to make here state
+// and update only state in View
+// like MVI model

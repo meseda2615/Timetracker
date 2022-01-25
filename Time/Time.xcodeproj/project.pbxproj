@@ -32,6 +32,7 @@
 		05CF0F76279ACE0900215CD8 /* CategoryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F75279ACE0900215CD8 /* CategoryDetailsViewModel.swift */; };
 		05CF0F78279AD48000215CD8 /* CardDetailsViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F77279AD48000215CD8 /* CardDetailsViewAction.swift */; };
 		05CF0F7A279AD64900215CD8 /* CardDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F79279AD64900215CD8 /* CardDetailsModel.swift */; };
+		05CF100627A04D2100215CD8 /* Date+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF100527A04D2100215CD8 /* Date+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		05CF0F75279ACE0900215CD8 /* CategoryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsViewModel.swift; sourceTree = "<group>"; };
 		05CF0F77279AD48000215CD8 /* CardDetailsViewAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewAction.swift; sourceTree = "<group>"; };
 		05CF0F79279AD64900215CD8 /* CardDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsModel.swift; sourceTree = "<group>"; };
+		05CF100527A04D2100215CD8 /* Date+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				053A8FC52791B35D00C9FE8F /* Font+Extension.swift */,
 				05CF0F562799B54E00215CD8 /* View+extensions.swift */,
 				05CF0F73279AC66A00215CD8 /* UIApplication+extensions.swift */,
+				05CF100527A04D2100215CD8 /* Date+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				05CF0F6B279A9A1C00215CD8 /* TimeButtonView.swift in Sources */,
 				053A8FB32791B20700C9FE8F /* TimeApp.swift in Sources */,
 				05CF0F68279A95D300215CD8 /* CategoryModel.swift in Sources */,
+				05CF100627A04D2100215CD8 /* Date+extensions.swift in Sources */,
 				05CF0F592799B56D00215CD8 /* MainViewModel.swift in Sources */,
 				05CF0F63279A88CB00215CD8 /* CategoryDetailsView.swift in Sources */,
 				05CF0F74279AC66A00215CD8 /* UIApplication+extensions.swift in Sources */,

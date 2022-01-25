@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 
 final class CategoryDetailsViewModel:  ObservableObject {
@@ -16,6 +17,7 @@ final class CategoryDetailsViewModel:  ObservableObject {
 
     // Outputs
     @Published var filters: [TimeFilterModel] = []
+    @Published var showDatePicker: Bool = false
     
     
     init(
@@ -54,11 +56,15 @@ extension CategoryDetailsViewModel {
         
         switch (action) {
             
-        case .onClickSave: print("Save")
+        case .onClickSave: saveDate()
         case .selectIndex(let idx): selectFilter(idx)
             
         }
         
+    }
+    
+    private func saveDate() {
+        // need to save here horus and minutes for this day
     }
     
     private func selectFilter(_ idx: Int) {
@@ -67,5 +73,12 @@ extension CategoryDetailsViewModel {
             filters[i].isSelected = false
         }
         filters[idx].isSelected = true
+        
+        
+        withAnimation(.easeOut(duration: 0.3)) {
+            showDatePicker = filters[idx].value == .other
+        }
+        
+       
     }
 }

@@ -23,7 +23,7 @@ struct CategoryDetailsView: View {
     
     
     @ObservedObject var viewModel: CategoryDetailsViewModel
-    
+    @State var selectedDate: Date = Date()
     
     var body: some View {
         
@@ -32,7 +32,7 @@ struct CategoryDetailsView: View {
                 
                 Image(Images.categoryDetailsImg)
                     .resizable()
-                    .screenHeight(0.7)
+                    .screenHeight(viewModel.showDatePicker ? 0.65 : 0.7)
                     .edgesIgnoringSafeArea(.top)
                 
                 
@@ -47,12 +47,25 @@ struct CategoryDetailsView: View {
                         // need to add selectable item
                         TimeFiltersView(
                             filters: viewModel.filters,
+                            // need to show picer if we use Other filter
                             onTappitemIndex: viewModel.setInputAction
                         )
                     }
                     
-                    
+                    if (viewModel.showDatePicker) {
+                        
+
+                            
+                        DatePicker("Today", selection: $selectedDate, displayedComponents: .hourAndMinute)
+                            .labelsHidden()
+                            .frame(height: 50)
+                            .padding(.horizontal)
+                    }
                     Spacer()
+                    
+                    
+                        
+                        
                     
                     
                     // Need to use here commont button

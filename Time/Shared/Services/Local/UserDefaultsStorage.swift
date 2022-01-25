@@ -16,6 +16,10 @@ final class UserStorageService {
         enum OnBoarding {
             static let seenKey = "seenKey"
         }
+        
+        enum CategorySleep {
+            static let showedSleep = "showedSleep"
+        }
     }
 
     
@@ -30,5 +34,20 @@ extension UserStorageService {
     
     func setIsonBoardingSeen() {
         defaults.setValue(true, forKey: Keys.OnBoarding.seenKey)
+    }
+}
+
+// MARK: - IsNeedToShowSleepScreenToday
+extension UserStorageService {
+    
+    func getShowedSleepDate() -> String? {
+        return defaults.string(forKey: Keys.CategorySleep.showedSleep)
+    }
+    
+    func setDateShowedSleepScreen(date: String) {
+        
+        print("Date",date)
+        defaults.set(date, forKey: Keys.CategorySleep.showedSleep)
+        
     }
 }

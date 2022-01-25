@@ -19,7 +19,14 @@ struct MainView: View {
                 .environmentObject(viewModel)
                 
         } else {
-            CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: .sleep))
+            
+            if viewModel.checkIfNeedShowSleepScreenToday() {
+                CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: .sleep))
+            } else {
+                CategoryView()
+            }
+            
+            
         }
         
         
