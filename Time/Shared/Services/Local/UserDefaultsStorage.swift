@@ -60,13 +60,28 @@ extension UserStorageService {
 extension UserStorageService {
     
     
-    func getTodayCategoryModel() -> CategoryModel? {
-        if let category =  try? defaults.get(objectType: CategoryModel.self, forKey: Keys.Category.category) {
+    func getTodayCategoryModel() -> CategoryModel {
+        // try to get category and if category with today date we can update this
+        if
+            let category =  try? defaults.get(objectType: CategoryModel.self, forKey: Keys.Category.category),
+            category.date.isToday()
+        {
+            
             return category
         }
-        return nil
+        
+        // if not create new category with today date
+        return CategoryModel()
         
     }
+    
+    
+    func updateCategoryModel(category: TimeCategory, seconds: Double) {
+        var model = getTodayCategoryModel()
+        model.data[category.rawValue] = seconds
+        saveCategoryModel(category: model)
+    }
+    
     
     func saveCategoryModel(category: CategoryModel) {
         

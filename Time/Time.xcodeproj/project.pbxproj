@@ -13,6 +13,7 @@
 		05373A9527A143A7002136E6 /* Binding+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05373A9427A143A7002136E6 /* Binding+extensions.swift */; };
 		05373A9727A144CC002136E6 /* Int+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05373A9627A144CC002136E6 /* Int+extensions.swift */; };
 		05373A9927A149F7002136E6 /* UserDefaults+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05373A9827A149F7002136E6 /* UserDefaults+extension.swift */; };
+		05373A9B27A14DC4002136E6 /* Double+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05373A9A27A14DC4002136E6 /* Double+extensions.swift */; };
 		053A8FB32791B20700C9FE8F /* TimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A8FA32791B20600C9FE8F /* TimeApp.swift */; };
 		053A8FB42791B20700C9FE8F /* TimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A8FA32791B20600C9FE8F /* TimeApp.swift */; };
 		053A8FB72791B20700C9FE8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 053A8FA52791B20700C9FE8F /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		05373A9427A143A7002136E6 /* Binding+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+extensions.swift"; sourceTree = "<group>"; };
 		05373A9627A144CC002136E6 /* Int+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+extensions.swift"; sourceTree = "<group>"; };
 		05373A9827A149F7002136E6 /* UserDefaults+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extension.swift"; sourceTree = "<group>"; };
+		05373A9A27A14DC4002136E6 /* Double+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+extensions.swift"; sourceTree = "<group>"; };
 		053A8FA32791B20600C9FE8F /* TimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeApp.swift; sourceTree = "<group>"; };
 		053A8FA52791B20700C9FE8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		053A8FAA2791B20700C9FE8F /* Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Time.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 				05373A9427A143A7002136E6 /* Binding+extensions.swift */,
 				05373A9627A144CC002136E6 /* Int+extensions.swift */,
 				05373A9827A149F7002136E6 /* UserDefaults+extension.swift */,
+				05373A9A27A14DC4002136E6 /* Double+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				05CF0F72279AAB5700215CD8 /* SelectOnTapModifier.swift in Sources */,
 				053A8FCE2791B3C800C9FE8F /* OnBoardingView.swift in Sources */,
 				05CF0F6F279AA90100215CD8 /* CategoryViewModel.swift in Sources */,
+				05373A9B27A14DC4002136E6 /* Double+extensions.swift in Sources */,
 				05373A9527A143A7002136E6 /* Binding+extensions.swift in Sources */,
 				053A8FC62791B35D00C9FE8F /* Font+Extension.swift in Sources */,
 				05CF0F572799B54E00215CD8 /* View+extensions.swift in Sources */,

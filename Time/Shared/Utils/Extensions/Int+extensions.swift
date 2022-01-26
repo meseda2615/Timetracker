@@ -10,4 +10,16 @@ extension Int {
     static func parse(from string: String) -> Int? {
         return Int(string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
     }
+    
+    func toDouble() -> Double {
+        Double(self)
+    }
+    
+    func hourseToSeconds() -> Double {
+        Double(self * 3600)
+    }
+    
+    func minutesToSeconds() -> Double {
+        Double(self * 60)
+    }
 }

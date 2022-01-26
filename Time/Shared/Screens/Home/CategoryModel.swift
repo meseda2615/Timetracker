@@ -24,7 +24,7 @@ struct CategoryModel {
     
     var date: Date = Date()
     // category and tracked seconds
-    var data: [String: Int] = [:]
+    var data: [String: Double] = [:]
 }
 
 extension CategoryModel: Codable {}

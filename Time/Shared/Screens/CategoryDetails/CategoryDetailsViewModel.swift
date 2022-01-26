@@ -7,22 +7,33 @@
 
 import Foundation
 import SwiftUI
-
+import Combine
 
 final class CategoryDetailsViewModel:  ObservableObject {
     
     // reRender View when set new value  wich contains this ViewModel like ObservedObject
     
     let category: TimeCategory
+    private let userDefaultsStorage: UserStorageService?
 
     // Outputs
     @Published var filters: [TimeFilterModel] = []
     @Published var showDatePicker: Bool = false
     
+    var selectedSeconds: Double = 0
+    
+    @Published var pickerSelection: [String] = [1, 15].map { "\($0)" }
+    
+    var savedSeconds = PassthroughSubject<Bool,Never>()
+    
+   
+
     
     init(
-        category: TimeCategory) {
-            
+        category: TimeCategory,
+        userDefaultsStorage: UserStorageService?
+    ) {
+        self.userDefaultsStorage = userDefaultsStorage
             self.category = category
         
             
@@ -43,6 +54,8 @@ final class CategoryDetailsViewModel:  ObservableObject {
                     .init(value: .twoHours, color: .Tgreen),
                     .init(value: .other, color: .Tyellow)
                 ]
+        // need to set first value by default
+        selectFilter(0)
     }
     
     
@@ -58,7 +71,6 @@ extension CategoryDetailsViewModel {
             
         case .onClickSave: saveDate()
         case .selectIndex(let idx): selectFilter(idx)
-        case .onSelectPickerTime(let value): selectPickerTime(value)
             
         }
         
@@ -67,6 +79,18 @@ extension CategoryDetailsViewModel {
     private func saveDate() {
         // need to save here horus and minutes for this day
 
+        
+        if showDatePicker {
+            // need to get selection picker value
+            let hour = Int(pickerSelection.first ?? "0") ?? 0
+            let min = Int(pickerSelection.last ?? "0") ?? 0
+            
+            selectedSeconds = hour.hourseToSeconds() + min.minutesToSeconds()
+        }
+        
+        
+        
+        saveSpendSecondsByCategory(seconds: selectedSeconds)
         
     }
     
@@ -82,6 +106,14 @@ extension CategoryDetailsViewModel {
         
         withAnimation(.easeOut(duration: 0.3)) {
             showDatePicker = selectedFilter.value == .other
+            
+        }
+        
+        // go from this func if we select other
+        guard selectedFilter.value != .other else {
+            selectedSeconds = 0
+            return
+            
         }
         
         // need to get only Ints from this string
@@ -89,29 +121,19 @@ extension CategoryDetailsViewModel {
         
         if selectedFilter.value == .thirtyMin {
             // no need to make convertions here
+            selectedSeconds  = value.minutesToSeconds()
+        } else {
+            selectedSeconds  = value.hourseToSeconds()
         }
         
-        // need to convert to seconds
-        // minute to seconds
-        // hours to seconds
-        saveSpendSecondsByCategory(value: value)
-        
-        
-        // when we get back this data a we
-        
-        // My local database
-        // date -> [category: seconds]
-        
-        // if this date is today when update this date
-        // if not clear date and create new db
     }
     
-    private func selectPickerTime(_ value: [String]) {
-        
-    }
     
     // will save value by seconds or minutes
-    private func saveSpendSecondsByCategory(value: Int) {
-        
+    private func saveSpendSecondsByCategory(seconds: Double) {
+        print("Save Seconds", selectedSeconds)
+        print("Save Category", category)
+        userDefaultsStorage?.updateCategoryModel(category: category, seconds: seconds)
+        savedSeconds.send(true)
     }
 }

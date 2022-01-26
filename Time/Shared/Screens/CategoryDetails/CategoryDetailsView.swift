@@ -21,7 +21,7 @@ import SwiftUI
 
 struct CategoryDetailsView: View {
     
-    
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: CategoryDetailsViewModel
     
     
@@ -29,7 +29,7 @@ struct CategoryDetailsView: View {
         ("One", Ranges.hours.map { "\($0)" }),
         ("Two", Ranges.minutes.map { "\($0)" })
     ]
-    @State var selection: [String] = [1, 15].map { "\($0)" }
+    
     
     var body: some View {
         
@@ -38,7 +38,7 @@ struct CategoryDetailsView: View {
                 
                 Image(Images.categoryDetailsImg)
                     .resizable()
-                    .screenHeight(viewModel.showDatePicker ? 0.5 : 0.7)
+                    .screenHeight(viewModel.showDatePicker ? 0.4 : 0.7)
                     .edgesIgnoringSafeArea(.top)
                 
                 
@@ -56,24 +56,21 @@ struct CategoryDetailsView: View {
                             // need to show picer if we use Other filter
                             onTappitemIndex: viewModel.setInputAction
                         )
+                        if (viewModel.showDatePicker) {
+                            
+                            GeometryReader { g in
+                                MultiPickerView(data: data, selection: $viewModel.pickerSelection)
+                                    
+                                Text("h")
+                                    .position(x: g.size.width * 0.38, y: g.size.height * 0.5)
+                                Text("min")
+                                    .position(x: g.size.width * 0.9, y: g.size.height * 0.5)
+                            }.screenHeight(0.3)
+                            
+                        }
                     }
                     
-                    if (viewModel.showDatePicker) {
-                        
-                        GeometryReader { g in
-                            MultiPicker(data: data, selection: $selection.onUpdate {
-                                viewModel.setInputAction(.onSelectPickerTime(value: selection))
-                            })
-                                
-                            Text("h")
-                                .position(x: g.size.width * 0.38, y: g.size.height * 0.5)
-                            Text("min")
-                                .position(x: g.size.width * 0.9, y: g.size.height * 0.5)
-                        }.screenHeight(0.2)
-                            
-                            
-                        
-                    }
+                    
                     Spacer()
                     
                     
@@ -97,41 +94,18 @@ struct CategoryDetailsView: View {
             TimeNavBarView(leftTitle: viewModel.category.rawValue.capitalized)
             
             
-        }.onAppear {
-            // if need to change status bar by hands
-            //            UIApplication.shared.statusBarStyle = .darkContent
+        }.onReceive(viewModel.savedSeconds) { saved in
+            print("Need dismiss screen")
+            if saved {
+                dismiss()
+            }
+            
         }
         
         
     }
 }
 
-struct MultiPicker: View  {
-    
-    typealias Label = String
-    typealias Entry = String
-    
-    let data: [ (Label, [Entry]) ]
-    @Binding var selection: [Entry]
-    
-    var body: some View {
-        GeometryReader { geometry in
-            HStack {
-                ForEach(0..<self.data.count) { column in
-                    Picker(self.data[column].0, selection: self.$selection[column]) {
-                        ForEach(0..<self.data[column].1.count) { row in
-                            Text(verbatim: self.data[column].1[row])
-                                .tag(self.data[column].1[row])
-                        }
-                    }
-                    .pickerStyle(WheelPickerStyle())
-                    .frame(width: geometry.size.width / CGFloat(self.data.count), height: geometry.size.height)
-                    .clipped()
-                }
-            }
-        }
-    }
-}
 
 
 // MARK: - FiltersView
@@ -180,6 +154,6 @@ struct TimeFilterItem: View {
 
 struct CategoryDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: .sleep))
+        CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: .sleep, userDefaultsStorage: ServiceLocator.shared.getService()))
     }
 }

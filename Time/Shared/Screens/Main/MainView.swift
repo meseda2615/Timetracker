@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    private let userDefaultsStorage: UserStorageService? = ServiceLocator.shared.getService()
 
+    
     @ObservedObject var viewModel: MainViewModel
+    @State var isNeedToShowSleep: Bool = false
     
     var body: some View {
         
@@ -20,14 +24,18 @@ struct MainView: View {
                 
         } else {
             
-            CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: .sleep))
-            
-//            if viewModel.checkIfNeedShowSleepScreenToday() {
-//                CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: .sleep))
-//            } else {
-//                CategoryView()
-//            }
-            
+            CategoryView()
+                .onAppear {
+                    if (viewModel.checkIfNeedShowSleepScreenToday()) {
+                        isNeedToShowSleep = true
+                    }
+                }
+                .fullScreenCover(isPresented: $isNeedToShowSleep, onDismiss: {}) {
+                    CategoryDetailsView(viewModel:
+                                            CategoryDetailsViewModel(
+                                                category: .sleep,
+                                                userDefaultsStorage: userDefaultsStorage))
+                }
             
         }
         
