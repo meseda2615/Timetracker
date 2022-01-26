@@ -30,7 +30,9 @@ struct MainView: View {
                         isNeedToShowSleep = true
                     }
                 }
-                .fullScreenCover(isPresented: $isNeedToShowSleep, onDismiss: {}) {
+                .fullScreenCover(isPresented: $isNeedToShowSleep, onDismiss: {
+                    UIApplication.shared.setStatusBarStyle(.darkContent, animated: true)
+                }) {
                     CategoryDetailsView(viewModel:
                                             CategoryDetailsViewModel(
                                                 category: .sleep,

@@ -21,9 +21,11 @@ import SwiftUI
 
 struct CategoryDetailsView: View {
     
+    
+    
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: CategoryDetailsViewModel
-    
+
     
     @State var data: [(String, [String])] = [
         ("One", Ranges.hours.map { "\($0)" }),
@@ -98,8 +100,12 @@ struct CategoryDetailsView: View {
             print("Need dismiss screen")
             if saved {
                 dismiss()
+                
             }
             
+        }
+        .onAppear {
+            UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
         }
         
         

@@ -155,20 +155,3 @@ extension RandomAccessCollection {
 }
 
 
-// MARK: - Status bar
-
-struct StatusBarStyleKey: PreferenceKey {
-  static func reduce(value: inout UIStatusBarStyle?, nextValue: () -> UIStatusBarStyle?) {
-    guard let v = nextValue() else {
-      return
-    }
-    
-    value = v
-  }
-}
-
-extension View {
-  func statusBar(style: UIStatusBarStyle?) -> some View {
-    return preference(key: StatusBarStyleKey.self, value: style)
-  }
-}
