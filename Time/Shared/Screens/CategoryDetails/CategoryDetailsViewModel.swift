@@ -52,7 +52,7 @@ final class CategoryDetailsViewModel:  ObservableObject {
 extension CategoryDetailsViewModel {
     
     
-    func setInputAction(_ action: CardDetailsViewAction) {
+    func setInputAction(_ action: CardDetailsViewAction)  {
         
         switch (action) {
             
@@ -65,6 +65,8 @@ extension CategoryDetailsViewModel {
     
     private func saveDate() {
         // need to save here horus and minutes for this day
+
+        
     }
     
     private func selectFilter(_ idx: Int) {

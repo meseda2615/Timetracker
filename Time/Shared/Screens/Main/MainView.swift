@@ -20,11 +20,13 @@ struct MainView: View {
                 
         } else {
             
-            if viewModel.checkIfNeedShowSleepScreenToday() {
-                CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: .sleep))
-            } else {
-                CategoryView()
-            }
+            CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: .sleep))
+            
+//            if viewModel.checkIfNeedShowSleepScreenToday() {
+//                CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: .sleep))
+//            } else {
+//                CategoryView()
+//            }
             
             
         }

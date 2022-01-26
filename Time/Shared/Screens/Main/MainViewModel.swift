@@ -48,6 +48,10 @@ extension MainViewModel {
 extension MainViewModel {
     
     func checkIfNeedShowSleepScreenToday() -> Bool {
+        
+        print("Check if needed Sleep Screen")
+        
+        
         let now =  Date()
         
         let showedDateString = userDefaultsStorage?.getShowedSleepDate()
@@ -60,13 +64,11 @@ extension MainViewModel {
         }
         
         
-        // if we get date and today day more when showed
+        // if we get date showed day not today need to show sleep screen and save today date
         if
             let showedDate = Date.parse(dateString: showedDateString!),
-            now.dayOfYear > showedDate.dayOfYear {
+            showedDate.isToday() == false {
             
-            print("Save date again",now.dayOfYear)
-            print("Save date showed again",showedDate.dayOfYear)
             saveDate(date: now.toString())
             return true
             

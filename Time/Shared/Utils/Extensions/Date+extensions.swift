@@ -9,9 +9,8 @@ import Foundation
 extension Date {
     
     
-    public var dayOfYear: UInt {
-        let range = NSCalendar.current.range(of: .day, in: .year, for: self as Date)
-        return UInt(range!.count)
+    public func isToday() -> Bool {
+        return Calendar.current.isDateInToday(self)
     }
     
    

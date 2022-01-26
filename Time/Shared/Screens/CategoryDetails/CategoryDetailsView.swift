@@ -23,7 +23,13 @@ struct CategoryDetailsView: View {
     
     
     @ObservedObject var viewModel: CategoryDetailsViewModel
-    @State var selectedDate: Date = Date()
+    
+    
+    @State var data: [(String, [String])] = [
+        ("One", Ranges.hours.map { "\($0)" }),
+        ("Two", Ranges.minutes.map { "\($0)" })
+    ]
+    @State var selection: [String] = [1, 15].map { "\($0)" }
     
     var body: some View {
         
@@ -32,7 +38,7 @@ struct CategoryDetailsView: View {
                 
                 Image(Images.categoryDetailsImg)
                     .resizable()
-                    .screenHeight(viewModel.showDatePicker ? 0.65 : 0.7)
+                    .screenHeight(viewModel.showDatePicker ? 0.5 : 0.7)
                     .edgesIgnoringSafeArea(.top)
                 
                 
@@ -54,18 +60,19 @@ struct CategoryDetailsView: View {
                     
                     if (viewModel.showDatePicker) {
                         
-
+                        GeometryReader { g in
+                            MultiPicker(data: data, selection: $selection)
+                                
+                            Text("h")
+                                .position(x: g.size.width * 0.38, y: g.size.height * 0.5)
+                            Text("min")
+                                .position(x: g.size.width * 0.9, y: g.size.height * 0.5)
+                        }.screenHeight(0.2)
                             
-                        DatePicker("Today", selection: $selectedDate, displayedComponents: .hourAndMinute)
-                            .labelsHidden()
-                            .frame(height: 50)
-                            .padding(.horizontal)
+                            
+                        
                     }
                     Spacer()
-                    
-                    
-                        
-                        
                     
                     
                     // Need to use here commont button
@@ -94,6 +101,33 @@ struct CategoryDetailsView: View {
         }
         
         
+    }
+}
+
+struct MultiPicker: View  {
+    
+    typealias Label = String
+    typealias Entry = String
+    
+    let data: [ (Label, [Entry]) ]
+    @Binding var selection: [Entry]
+    
+    var body: some View {
+        GeometryReader { geometry in
+            HStack {
+                ForEach(0..<self.data.count) { column in
+                    Picker(self.data[column].0, selection: self.$selection[column]) {
+                        ForEach(0..<self.data[column].1.count) { row in
+                            Text(verbatim: self.data[column].1[row])
+                                .tag(self.data[column].1[row])
+                        }
+                    }
+                    .pickerStyle(WheelPickerStyle())
+                    .frame(width: geometry.size.width / CGFloat(self.data.count), height: geometry.size.height)
+                    .clipped()
+                }
+            }
+        }
     }
 }
 

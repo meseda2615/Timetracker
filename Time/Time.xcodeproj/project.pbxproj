@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05373A8C27A1365C002136E6 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05373A8B27A1365C002136E6 /* TimePickerView.swift */; };
+		05373A8E27A13A1B002136E6 /* MultiPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05373A8D27A13A1B002136E6 /* MultiPickerView.swift */; };
+		05373A9327A13B9F002136E6 /* Ranges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05373A9227A13B9F002136E6 /* Ranges.swift */; };
 		053A8FB32791B20700C9FE8F /* TimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A8FA32791B20600C9FE8F /* TimeApp.swift */; };
 		053A8FB42791B20700C9FE8F /* TimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A8FA32791B20600C9FE8F /* TimeApp.swift */; };
 		053A8FB72791B20700C9FE8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 053A8FA52791B20700C9FE8F /* Assets.xcassets */; };
@@ -36,6 +39,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05373A8B27A1365C002136E6 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		05373A8D27A13A1B002136E6 /* MultiPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPickerView.swift; sourceTree = "<group>"; };
+		05373A9227A13B9F002136E6 /* Ranges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranges.swift; sourceTree = "<group>"; };
 		053A8FA32791B20600C9FE8F /* TimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeApp.swift; sourceTree = "<group>"; };
 		053A8FA52791B20700C9FE8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		053A8FAA2791B20700C9FE8F /* Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Time.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +156,7 @@
 			children = (
 				053A8FA32791B20600C9FE8F /* TimeApp.swift */,
 				053A8FC82791B38D00C9FE8F /* Constants.swift */,
+				05373A9227A13B9F002136E6 /* Ranges.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -234,6 +241,8 @@
 			children = (
 				05CF0F6A279A9A1C00215CD8 /* TimeButtonView.swift */,
 				05CF0F6C279AA5D400215CD8 /* TimeNavBarView.swift */,
+				05373A8B27A1365C002136E6 /* TimePickerView.swift */,
+				05373A8D27A13A1B002136E6 /* MultiPickerView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -351,10 +360,13 @@
 				05CF0F602799B91C00215CD8 /* ServiceLocator.swift in Sources */,
 				05CF0F76279ACE0900215CD8 /* CategoryDetailsViewModel.swift in Sources */,
 				053A8FD02791B3D900C9FE8F /* MainView.swift in Sources */,
+				05373A8C27A1365C002136E6 /* TimePickerView.swift in Sources */,
 				05CF0F78279AD48000215CD8 /* CardDetailsViewAction.swift in Sources */,
+				05373A9327A13B9F002136E6 /* Ranges.swift in Sources */,
 				05CF0F7A279AD64900215CD8 /* CardDetailsModel.swift in Sources */,
 				05CF0F65279A8CF700215CD8 /* ExtensionTestView.swift in Sources */,
 				053A8FC42791B35100C9FE8F /* Color+extensions.swift in Sources */,
+				05373A8E27A13A1B002136E6 /* MultiPickerView.swift in Sources */,
 				05CF0F72279AAB5700215CD8 /* SelectOnTapModifier.swift in Sources */,
 				053A8FCE2791B3C800C9FE8F /* OnBoardingView.swift in Sources */,
 				05CF0F6F279AA90100215CD8 /* CategoryViewModel.swift in Sources */,
