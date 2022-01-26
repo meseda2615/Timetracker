@@ -20,6 +20,10 @@ final class UserStorageService {
         enum CategorySleep {
             static let showedSleep = "showedSleep"
         }
+        
+        enum Category {
+            static let category = "category"
+        }
     }
 
     
@@ -49,5 +53,23 @@ extension UserStorageService {
         print("Date",date)
         defaults.set(date, forKey: Keys.CategorySleep.showedSleep)
         
+    }
+}
+
+// MARK: - Save TrackedTime by Category
+extension UserStorageService {
+    
+    
+    func getTodayCategoryModel() -> CategoryModel? {
+        if let category =  try? defaults.get(objectType: CategoryModel.self, forKey: Keys.Category.category) {
+            return category
+        }
+        return nil
+        
+    }
+    
+    func saveCategoryModel(category: CategoryModel) {
+        
+        try? defaults.set(object: category, forKey: Keys.Category.category)
     }
 }

@@ -14,4 +14,5 @@ enum CardDetailsViewAction {
     
     case selectIndex(idx: Int)
     case onClickSave
+    case onSelectPickerTime(value:[String])
 }

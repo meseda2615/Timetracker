@@ -61,7 +61,9 @@ struct CategoryDetailsView: View {
                     if (viewModel.showDatePicker) {
                         
                         GeometryReader { g in
-                            MultiPicker(data: data, selection: $selection)
+                            MultiPicker(data: data, selection: $selection.onUpdate {
+                                viewModel.setInputAction(.onSelectPickerTime(value: selection))
+                            })
                                 
                             Text("h")
                                 .position(x: g.size.width * 0.38, y: g.size.height * 0.5)

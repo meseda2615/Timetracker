@@ -58,6 +58,7 @@ extension CategoryDetailsViewModel {
             
         case .onClickSave: saveDate()
         case .selectIndex(let idx): selectFilter(idx)
+        case .onSelectPickerTime(let value): selectPickerTime(value)
             
         }
         
@@ -71,6 +72,8 @@ extension CategoryDetailsViewModel {
     
     private func selectFilter(_ idx: Int) {
         // clear all filter
+        
+        let selectedFilter = filters[idx]
         filters.indexed().forEach { i, _ in
             filters[i].isSelected = false
         }
@@ -78,9 +81,37 @@ extension CategoryDetailsViewModel {
         
         
         withAnimation(.easeOut(duration: 0.3)) {
-            showDatePicker = filters[idx].value == .other
+            showDatePicker = selectedFilter.value == .other
         }
         
-       
+        // need to get only Ints from this string
+        let value =  Int.parse(from: selectedFilter.value.rawValue) ?? 0
+        
+        if selectedFilter.value == .thirtyMin {
+            // no need to make convertions here
+        }
+        
+        // need to convert to seconds
+        // minute to seconds
+        // hours to seconds
+        saveSpendSecondsByCategory(value: value)
+        
+        
+        // when we get back this data a we
+        
+        // My local database
+        // date -> [category: seconds]
+        
+        // if this date is today when update this date
+        // if not clear date and create new db
+    }
+    
+    private func selectPickerTime(_ value: [String]) {
+        
+    }
+    
+    // will save value by seconds or minutes
+    private func saveSpendSecondsByCategory(value: Int) {
+        
     }
 }

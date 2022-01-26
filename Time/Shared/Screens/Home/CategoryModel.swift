@@ -18,3 +18,13 @@ enum TimeCategory: String {
     case family
     case mix
 }
+
+
+struct CategoryModel {
+    
+    var date: Date = Date()
+    // category and tracked seconds
+    var data: [String: Int] = [:]
+}
+
+extension CategoryModel: Codable {}
