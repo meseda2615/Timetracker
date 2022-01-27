@@ -9,8 +9,11 @@ import SwiftUI
 
 struct CategoryView: View {
     
+    // we can use here appstorage
+    // and when we update stirage frim user defaults we can redraw here
     
-    let twoColumns = [GridItem(spacing: 12), GridItem(spacing: 12)]
+    
+    private let twoColumns = [GridItem(spacing: 12), GridItem(spacing: 12)]
     
     
     var body: some View {
@@ -20,8 +23,8 @@ struct CategoryView: View {
             
             HStack(alignment: .center) {
                 VStack(alignment: .leading) {
-                    Text("Super Title")
-                    Text("Sub title result")
+                    Text("Super Title").font(.spartanTitle)
+                    Text("Sub title result").font(.system(size: 10))
                 }
                 Spacer()
                 Button(action: {}) {

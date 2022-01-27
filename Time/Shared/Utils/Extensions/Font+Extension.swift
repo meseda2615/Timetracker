@@ -9,14 +9,14 @@ import SwiftUI
 
 extension Font {
     public static var spartanTitle: Font {
-        return Font.custom("Spartan", size: 18).weight(.medium)
+        return Font.custom("Spartan-Bold", size: 18)
     }
     
     public static var spartanBody: Font {
-        return Font.custom("Spartan", size: 14).weight(.regular)
+        return Font.custom("Spartan-Regular", size: 14)
     }
     
     public static var spartanMedium: Font {
-        return Font.custom("Spartan", size: 14).weight(.medium)
+        return Font.custom("Spartan-Medium", size: 14)
     }
 }

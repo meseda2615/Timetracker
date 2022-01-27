@@ -23,8 +23,8 @@ struct CategoryDetailsView: View {
     
     
     
-    @Environment(\.dismiss) var dismiss
-    @ObservedObject var viewModel: CategoryDetailsViewModel
+    @Environment(\.dismiss) private var dismiss
+    @ObservedObject var  viewModel: CategoryDetailsViewModel
 
     
     @State var data: [(String, [String])] = [
@@ -55,7 +55,6 @@ struct CategoryDetailsView: View {
                         // need to add selectable item
                         TimeFiltersView(
                             filters: viewModel.filters,
-                            // need to show picer if we use Other filter
                             onTappitemIndex: viewModel.setInputAction
                         )
                         if (viewModel.showDatePicker) {

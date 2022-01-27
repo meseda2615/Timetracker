@@ -9,43 +9,42 @@ import SwiftUI
 import Combine
 
 
-final class MainViewModel:  ObservableObject {
-    
-    // reRender View when set new value  wich contains this ViewModel like ObservedObject
-    @Published var hasOnboardingSeen: Bool = false
-    @Published var isNeedToShowSleepScreen: Bool = false
-    
-    
-    private let userDefaultsStorage: UserStorageService?
-    
-    init(userDefaultsStorage: UserStorageService?) {
-        self.userDefaultsStorage = userDefaultsStorage
+extension MainView {
+    final class ViewModel:  ObservableObject {
         
-        hasOnboardingSeen = getIsOnBoardingSeen()
+
+        
+        // like user defaults
+        
+        
+        
+        private let userDefaultsStorage: UserStorageService?
+        
+        init(userDefaultsStorage: UserStorageService?) {
+            self.userDefaultsStorage = userDefaultsStorage
+            
+            
+        }
+        
+        
+        
     }
-    
-    
-    
 }
+
+
 
 // MARK: - OnBoarding
 
-extension MainViewModel {
+extension MainView.ViewModel {
     
-    
-    private func getIsOnBoardingSeen() -> Bool {
-        userDefaultsStorage?.getIsOnBoardingSeen() ?? false
-    }
     
     func setSeenOnBoarding() {
         userDefaultsStorage?.setIsonBoardingSeen()
-        hasOnboardingSeen = true
-        
     }
 }
 
 // MARK: - Show Sleep Screen
-extension MainViewModel {
+extension MainView.ViewModel {
     
     func checkIfNeedShowSleepScreenToday() -> Bool {
         

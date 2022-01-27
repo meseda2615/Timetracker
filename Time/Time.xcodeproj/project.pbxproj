@@ -23,6 +23,22 @@
 		053A8FC92791B38D00C9FE8F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A8FC82791B38D00C9FE8F /* Constants.swift */; };
 		053A8FCE2791B3C800C9FE8F /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A8FCD2791B3C800C9FE8F /* OnBoardingView.swift */; };
 		053A8FD02791B3D900C9FE8F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A8FCF2791B3D900C9FE8F /* MainView.swift */; };
+		055C02AA27A2BDB70036C640 /* Spartan-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A227A2BDB60036C640 /* Spartan-Bold.ttf */; };
+		055C02AB27A2BDB70036C640 /* Spartan-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A227A2BDB60036C640 /* Spartan-Bold.ttf */; };
+		055C02AC27A2BDB70036C640 /* Spartan-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A327A2BDB60036C640 /* Spartan-Regular.ttf */; };
+		055C02AD27A2BDB70036C640 /* Spartan-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A327A2BDB60036C640 /* Spartan-Regular.ttf */; };
+		055C02AE27A2BDB70036C640 /* Spartan-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A427A2BDB60036C640 /* Spartan-ExtraLight.ttf */; };
+		055C02AF27A2BDB70036C640 /* Spartan-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A427A2BDB60036C640 /* Spartan-ExtraLight.ttf */; };
+		055C02B027A2BDB70036C640 /* Spartan-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A527A2BDB60036C640 /* Spartan-SemiBold.ttf */; };
+		055C02B127A2BDB70036C640 /* Spartan-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A527A2BDB60036C640 /* Spartan-SemiBold.ttf */; };
+		055C02B227A2BDB70036C640 /* Spartan-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A627A2BDB60036C640 /* Spartan-Light.ttf */; };
+		055C02B327A2BDB70036C640 /* Spartan-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A627A2BDB60036C640 /* Spartan-Light.ttf */; };
+		055C02B427A2BDB70036C640 /* Spartan-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A727A2BDB60036C640 /* Spartan-Medium.ttf */; };
+		055C02B527A2BDB70036C640 /* Spartan-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A727A2BDB60036C640 /* Spartan-Medium.ttf */; };
+		055C02B627A2BDB70036C640 /* Spartan-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A827A2BDB60036C640 /* Spartan-ExtraBold.ttf */; };
+		055C02B727A2BDB70036C640 /* Spartan-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A827A2BDB60036C640 /* Spartan-ExtraBold.ttf */; };
+		055C02B827A2BDB70036C640 /* Spartan-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A927A2BDB70036C640 /* Spartan-Thin.ttf */; };
+		055C02B927A2BDB70036C640 /* Spartan-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055C02A927A2BDB70036C640 /* Spartan-Thin.ttf */; };
 		05CF0F552799B53400215CD8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F542799B53400215CD8 /* CategoryView.swift */; };
 		05CF0F572799B54E00215CD8 /* View+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F562799B54E00215CD8 /* View+extensions.swift */; };
 		05CF0F592799B56D00215CD8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F582799B56D00215CD8 /* MainViewModel.swift */; };
@@ -61,6 +77,14 @@
 		053A8FCD2791B3C800C9FE8F /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		053A8FCF2791B3D900C9FE8F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		053A8FD12791B4F700C9FE8F /* Time--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Time--iOS--Info.plist"; sourceTree = "<group>"; };
+		055C02A227A2BDB60036C640 /* Spartan-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spartan-Bold.ttf"; sourceTree = "<group>"; };
+		055C02A327A2BDB60036C640 /* Spartan-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spartan-Regular.ttf"; sourceTree = "<group>"; };
+		055C02A427A2BDB60036C640 /* Spartan-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spartan-ExtraLight.ttf"; sourceTree = "<group>"; };
+		055C02A527A2BDB60036C640 /* Spartan-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spartan-SemiBold.ttf"; sourceTree = "<group>"; };
+		055C02A627A2BDB60036C640 /* Spartan-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spartan-Light.ttf"; sourceTree = "<group>"; };
+		055C02A727A2BDB60036C640 /* Spartan-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spartan-Medium.ttf"; sourceTree = "<group>"; };
+		055C02A827A2BDB60036C640 /* Spartan-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spartan-ExtraBold.ttf"; sourceTree = "<group>"; };
+		055C02A927A2BDB70036C640 /* Spartan-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spartan-Thin.ttf"; sourceTree = "<group>"; };
 		05CF0F542799B53400215CD8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		05CF0F562799B54E00215CD8 /* View+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+extensions.swift"; sourceTree = "<group>"; };
 		05CF0F582799B56D00215CD8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +165,7 @@
 		053A8FC12791B33900C9FE8F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				055C02A127A2BDAA0036C640 /* Fonts */,
 				05CF0F70279AAB3900215CD8 /* Modifieres */,
 				053A8FC22791B34200C9FE8F /* Extensions */,
 			);
@@ -200,6 +225,21 @@
 				05CF0F582799B56D00215CD8 /* MainViewModel.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		055C02A127A2BDAA0036C640 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				055C02A227A2BDB60036C640 /* Spartan-Bold.ttf */,
+				055C02A827A2BDB60036C640 /* Spartan-ExtraBold.ttf */,
+				055C02A427A2BDB60036C640 /* Spartan-ExtraLight.ttf */,
+				055C02A627A2BDB60036C640 /* Spartan-Light.ttf */,
+				055C02A727A2BDB60036C640 /* Spartan-Medium.ttf */,
+				055C02A327A2BDB60036C640 /* Spartan-Regular.ttf */,
+				055C02A527A2BDB60036C640 /* Spartan-SemiBold.ttf */,
+				055C02A927A2BDB70036C640 /* Spartan-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		05CF0F532799B52800215CD8 /* Home */ = {
@@ -346,7 +386,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				055C02AE27A2BDB70036C640 /* Spartan-ExtraLight.ttf in Resources */,
 				053A8FB72791B20700C9FE8F /* Assets.xcassets in Resources */,
+				055C02AA27A2BDB70036C640 /* Spartan-Bold.ttf in Resources */,
+				055C02B427A2BDB70036C640 /* Spartan-Medium.ttf in Resources */,
+				055C02B627A2BDB70036C640 /* Spartan-ExtraBold.ttf in Resources */,
+				055C02B227A2BDB70036C640 /* Spartan-Light.ttf in Resources */,
+				055C02AC27A2BDB70036C640 /* Spartan-Regular.ttf in Resources */,
+				055C02B827A2BDB70036C640 /* Spartan-Thin.ttf in Resources */,
+				055C02B027A2BDB70036C640 /* Spartan-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +402,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				055C02AF27A2BDB70036C640 /* Spartan-ExtraLight.ttf in Resources */,
 				053A8FB82791B20700C9FE8F /* Assets.xcassets in Resources */,
+				055C02AB27A2BDB70036C640 /* Spartan-Bold.ttf in Resources */,
+				055C02B527A2BDB70036C640 /* Spartan-Medium.ttf in Resources */,
+				055C02B727A2BDB70036C640 /* Spartan-ExtraBold.ttf in Resources */,
+				055C02B327A2BDB70036C640 /* Spartan-Light.ttf in Resources */,
+				055C02AD27A2BDB70036C640 /* Spartan-Regular.ttf in Resources */,
+				055C02B927A2BDB70036C640 /* Spartan-Thin.ttf in Resources */,
+				055C02B127A2BDB70036C640 /* Spartan-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
