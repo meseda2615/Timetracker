@@ -11,6 +11,7 @@ struct TimeNavBarView: View {
     
     var leftTitle: String
     var onMenuClick: (() -> Void)?
+    var onDissmissClick: (() -> Void)?
     
     var body: some View {
         HStack {
@@ -24,6 +25,14 @@ struct TimeNavBarView: View {
                     Image(Images.menuIcon)
                         .resizable()
                         .renderingMode(.original)
+                        .size(18)
+                }
+            }
+            if (onDissmissClick != nil) {
+                Button(action: {onDissmissClick?()}) {
+                    Image(systemName: "arrow.down")
+                        .resizable()
+                        .foregroundColor(Color.white)
                         .size(18)
                 }
             }

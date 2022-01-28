@@ -91,7 +91,10 @@ struct CategoryDetailsView: View {
                 .edgesIgnoringSafeArea(.top)
                 .background(Color.white)
             
-            TimeNavBarView(leftTitle: viewModel.category.rawValue.capitalized)
+            TimeNavBarView(
+                leftTitle: viewModel.category.rawValue.capitalized,
+                onDissmissClick: {dismiss()}
+            )
             
             
         }.onReceive(viewModel.savedSeconds) { saved in
