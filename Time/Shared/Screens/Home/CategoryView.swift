@@ -30,7 +30,8 @@ struct CategoryView: View {
                         date: viewModel.state.model.date,
                         result: viewModel.state.model.totalResult,
                         openStatsTap: {showNotReadyAlert = true},
-                        clearDayTap: {viewModel.setInputAction(.clearDay)}
+                        clearDayTap: {viewModel.setInputAction(.clearDay)},
+                        clearSelectedCategory: {viewModel.setInputAction(.clearSeelctedCategory)}
                     )
                     
                     LazyVGrid(columns: twoColumns,spacing: 20) {
@@ -83,6 +84,7 @@ private struct CategoryNavBar: View {
     
     var openStatsTap: () -> Void
     var clearDayTap: () -> Void
+    var clearSelectedCategory: () -> Void
     
     var body: some View {
         HStack(alignment: .center) {
@@ -97,6 +99,10 @@ private struct CategoryNavBar: View {
             Menu {
                 Button(action: clearDayTap) {
                     Text("Clear day")
+                    Image(systemName: "clear")
+                }
+                Button(action: clearSelectedCategory) {
+                    Text("Clear selected category")
                     Image(systemName: "clear.fill")
                 }
                 Button(action: openStatsTap) {

@@ -39,6 +39,7 @@ extension CategoryView.ViewModel {
         case .onSelectItem(let item): updateSelectedAndShowDetails(item: item)
         case .startToTrack: isOpenStartToTrakcScreen = true
         case .clearDay: clearDayModel()
+        case .clearSeelctedCategory: clearSelectedCategory()
         }
     }
 }
@@ -85,6 +86,16 @@ extension CategoryView.ViewModel {
     private func clearDayModel() {
         userDefaultsStorage?.clearModel()
         state = CategoryState()
+    }
+    
+    private func clearSelectedCategory() {
+        
+        if let selectedItem = state.model.data.first(where: {$0.isSelected}) {
+            
+            userDefaultsStorage?.clearSelectedCategory(category: selectedItem.category)
+            getCategoryModel()
+        }
+        
     }
 }
 

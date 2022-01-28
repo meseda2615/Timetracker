@@ -78,7 +78,13 @@ extension UserStorageService {
     
     func updateCategoryModel(category: TimeCategory, seconds: Double) {
         var model = getTodayCategoryModel()
-        model.data[category.rawValue] = seconds
+        
+        if let prevresult = model.data[category.rawValue]  {
+            model.data[category.rawValue]  = prevresult + seconds
+        } else {
+            model.data[category.rawValue] = seconds
+        }
+        
         saveCategoryModel(category: model)
     }
     
@@ -90,5 +96,16 @@ extension UserStorageService {
     
     func clearModel() {
         try? defaults.removeObject(forKey: Keys.Category.category)
+    }
+    
+    func clearSelectedCategory(category: TimeCategory) {
+        var model = getTodayCategoryModel()
+  
+        if model.data.keys.contains(category.rawValue) {
+            
+            model.data[category.rawValue] = 0
+        }
+        
+        saveCategoryModel(category: model)
     }
 }
