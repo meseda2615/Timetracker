@@ -37,6 +37,7 @@ extension CategoryView.ViewModel {
         switch input {
         case .onAppear: getCategoryModel()
         case .onSelectItem(let item): updateSelectedAndShowDetails(item: item)
+        case .onLongSelectItem(let item): onLongSelected(item: item)
         case .startToTrack: isOpenStartToTrakcScreen = true
         case .clearDay: clearDayModel()
         case .clearSeelctedCategory: clearSelectedCategory()
@@ -80,6 +81,9 @@ extension CategoryView.ViewModel {
     }
     
     private func updateSelectedAndShowDetails(item: TimeCategoryModel) {
+        
+        print("Update selected", item)
+        
         state.model.data.indexed().forEach { i,v in
             state.model.data[i].isSelected = false
         }
@@ -87,10 +91,14 @@ extension CategoryView.ViewModel {
             state.model.data[index].isSelected = true
         }
         
-        // and need navigate details
-        selectedItem = item
+        
         
         userDefaultsStorage?.updateCategoryModel(selectedCategory: item.category.rawValue)
+    }
+    
+    private func onLongSelected(item: TimeCategoryModel) {
+        // and need navigate details
+        selectedItem = item
     }
     
     private func clearDayModel() {

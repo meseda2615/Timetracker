@@ -11,6 +11,7 @@ import Foundation
 enum CategoryAction {
     case onAppear
     case onSelectItem(item: TimeCategoryModel)
+    case onLongSelectItem(item: TimeCategoryModel)
     case startToTrack
     case clearDay
     case clearSeelctedCategory

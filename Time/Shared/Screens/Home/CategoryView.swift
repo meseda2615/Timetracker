@@ -38,9 +38,14 @@ struct CategoryView: View {
                         
                         ForEach(viewModel.state.model.data) { item in
                             
-                            CategoryItemView(item: item) {
+                            CategoryItemView(
+                                item: item,
+                                onTapItem: {
                                 viewModel.setInputAction(.onSelectItem(item: item))
-                            }
+                            },
+                                onLongTapItem: {
+                                    viewModel.setInputAction(.onLongSelectItem(item: item))
+                                })
                             
                         }
                         
@@ -122,10 +127,13 @@ private struct CategoryNavBar: View {
     }
 }
 
+
+// MARK: - Category Item
 private struct CategoryItemView: View {
     
     var item: TimeCategoryModel
     var onTapItem : () -> Void
+    var onLongTapItem : () -> Void
     
     var body: some View {
         GeometryReader { r in
@@ -152,6 +160,8 @@ private struct CategoryItemView: View {
         .background(item.isSelected ? Color.black : Color.white)
         .cornerRadius(8)
         .onTapGesture(perform: onTapItem)
+        .onLongPressGesture(perform: onLongTapItem)
+        
     }
     
 }
