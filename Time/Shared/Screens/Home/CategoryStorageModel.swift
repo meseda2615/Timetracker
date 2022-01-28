@@ -18,14 +18,12 @@ struct CategoryStorageModel {
     // category and tracked seconds
     var data: [String: Double] = [:]
     
-    // Need to 
-    
 }
 
 extension CategoryStorageModel: Codable {}
 
 
-
+// State model for View
 struct CategoryStateModel {
  
     var data: [TimeCategoryModel] = [

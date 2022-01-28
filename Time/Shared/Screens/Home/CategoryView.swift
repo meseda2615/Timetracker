@@ -18,55 +18,74 @@ struct CategoryView: View {
     @ObservedObject  var viewModel: ViewModel
     
     var body: some View {
-        
-        ZStack {
-            Color.TlightGray.ignoresSafeArea()
-            
-            VStack(spacing: 12) {
+        NavigationView {
+            ZStack {
+                Color.TlightGray.ignoresSafeArea()
                 
-                HStack(alignment: .center) {
-                    VStack(alignment: .leading,spacing: 2) {
-                        Text(viewModel.state.model.date.toString(format: "MMMM dd, yyyy"))
-                            .font(.spartanTitle)
-                        Text("\(viewModel.state.model.totalResult) / 24 hours")
-                            .font(.system(size: 10))
-                    }
-                    Spacer()
-                    Button(action: {}) {
-                        Image(systemName: "line.3.horizontal")
-                            .foregroundColor(Color.black)
-                            .font(.system(size: 28))
-                    }
+                VStack(spacing: 12) {
                     
+                    CategoryNavBar(
+                        date: viewModel.state.model.date,
+                        result: viewModel.state.model.totalResult)
                     
-                }.fillMaxWidth()
-                
-                LazyVGrid(columns: twoColumns,spacing: 20) {
-                    
-                    ForEach(viewModel.state.model.data) { item in
+                    LazyVGrid(columns: twoColumns,spacing: 20) {
                         
-                        CategoryItemView(item: item) {
-                            viewModel.setInputAction(.onSelectItem(item: item))
+                        ForEach(viewModel.state.model.data) { item in
+                            
+                            CategoryItemView(item: item) {
+                                viewModel.setInputAction(.onSelectItem(item: item))
+                            }
+                            
                         }
                         
                     }
                     
+                    TimeButtonView(text: "Start to track") {
+                        viewModel.setInputAction(.startToTrack)
+                    }
+                    
+                    // nav link to push screens
+                    NavigationLink(isActive: $viewModel.isOpenStartToTrakcScreen, destination: {StartTrackingScreenView()}, label: {EmptyView()})
+                }
+                .fullScreenCover(item: $viewModel.selectedItem, onDismiss: {
+                    UIApplication.shared.setStatusBarStyle(.darkContent, animated: true)
+                    viewModel.setInputAction(.onAppear)
+                }) { item in
+                    CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: item.category))
                 }
                 
-                TimeButtonView(text: "Start to track") {
-                    
-                }
-            }
-            .fullScreenCover(item: $viewModel.selectedItem, onDismiss: {
-                UIApplication.shared.setStatusBarStyle(.darkContent, animated: true)
-                viewModel.setInputAction(.onAppear)
-            }) { item in
-                CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: item.category))
-            }
-
-            .fillMaxSize()
-            .padding(.horizontal,16)
+                .fillMaxSize()
+                .padding(.horizontal,16)
+            }.navigationBarHidden(true)
         }
+    }
+}
+
+
+private struct CategoryNavBar: View {
+    
+    var date: Date
+    var result: String
+    
+    var body: some View {
+        HStack(alignment: .center) {
+            VStack(alignment: .leading,spacing: 2) {
+                Text(date.toString(format: "MMMM dd, yyyy"))
+                    .font(.spartanTitle)
+                Text("\(result) / 24 hours")
+                    .font(.system(size: 10))
+            }
+            Spacer()
+            Button(action: {}) {
+                Image(Images.menuIcon)
+                    .resizable()
+                    .renderingMode(.template)
+                    .foregroundColor(Color.black)
+                    .size(18)
+            }
+            
+            
+        }.fillMaxWidth()
     }
 }
 
@@ -80,7 +99,7 @@ private struct CategoryItemView: View {
             VStack(alignment: .leading) {
                 Image(item.imageString)
                     .resizable()
-                    
+                
                 
                 VStack(alignment: .leading,spacing: 5) {
                     Text("\(item.category.rawValue.capitalized)")

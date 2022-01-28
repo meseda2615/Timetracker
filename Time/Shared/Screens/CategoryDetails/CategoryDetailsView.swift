@@ -46,7 +46,6 @@ struct CategoryDetailsView: View {
                 
                 VStack {
                     
-                    
                     VStack(spacing: 22) {
                         Text(viewModel.category == .sleep ? Titles.howLongdidYouSleep : Titles.whatDoYouWantToAdd)
                             .font(.spartanTitle)

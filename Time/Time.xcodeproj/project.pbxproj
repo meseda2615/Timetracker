@@ -43,6 +43,7 @@
 		055C02BC27A2C70C0036C640 /* CategoryAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C02BA27A2C70C0036C640 /* CategoryAction.swift */; };
 		055C02BE27A2CADE0036C640 /* CategoryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C02BD27A2CADE0036C640 /* CategoryState.swift */; };
 		055C02BF27A2CADE0036C640 /* CategoryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C02BD27A2CADE0036C640 /* CategoryState.swift */; };
+		05B0ABC027A3C1F600B25F4E /* StartTrackingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0ABBF27A3C1F600B25F4E /* StartTrackingScreenView.swift */; };
 		05CF0F552799B53400215CD8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F542799B53400215CD8 /* CategoryView.swift */; };
 		05CF0F572799B54E00215CD8 /* View+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F562799B54E00215CD8 /* View+extensions.swift */; };
 		05CF0F592799B56D00215CD8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F582799B56D00215CD8 /* MainViewModel.swift */; };
@@ -91,6 +92,7 @@
 		055C02A927A2BDB70036C640 /* Spartan-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spartan-Thin.ttf"; sourceTree = "<group>"; };
 		055C02BA27A2C70C0036C640 /* CategoryAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAction.swift; sourceTree = "<group>"; };
 		055C02BD27A2CADE0036C640 /* CategoryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryState.swift; sourceTree = "<group>"; };
+		05B0ABBF27A3C1F600B25F4E /* StartTrackingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTrackingScreenView.swift; sourceTree = "<group>"; };
 		05CF0F542799B53400215CD8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		05CF0F562799B54E00215CD8 /* View+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+extensions.swift"; sourceTree = "<group>"; };
 		05CF0F582799B56D00215CD8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		053A8FCA2791B39D00C9FE8F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				05B0ABBE27A3C1DF00B25F4E /* StartTracking */,
 				05CF0F61279A88A800215CD8 /* CategoryDetails */,
 				05CF0F532799B52800215CD8 /* Home */,
 				053A8FCC2791B3B600C9FE8F /* Main */,
@@ -246,6 +249,14 @@
 				055C02A927A2BDB70036C640 /* Spartan-Thin.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		05B0ABBE27A3C1DF00B25F4E /* StartTracking */ = {
+			isa = PBXGroup;
+			children = (
+				05B0ABBF27A3C1F600B25F4E /* StartTrackingScreenView.swift */,
+			);
+			path = StartTracking;
 			sourceTree = "<group>";
 		};
 		05CF0F532799B52800215CD8 /* Home */ = {
@@ -457,6 +468,7 @@
 				05373A9727A144CC002136E6 /* Int+extensions.swift in Sources */,
 				053A8FB32791B20700C9FE8F /* TimeApp.swift in Sources */,
 				05CF0F68279A95D300215CD8 /* CategoryStorageModel.swift in Sources */,
+				05B0ABC027A3C1F600B25F4E /* StartTrackingScreenView.swift in Sources */,
 				05CF100627A04D2100215CD8 /* Date+extensions.swift in Sources */,
 				05CF0F592799B56D00215CD8 /* MainViewModel.swift in Sources */,
 				05CF0F63279A88CB00215CD8 /* CategoryDetailsView.swift in Sources */,

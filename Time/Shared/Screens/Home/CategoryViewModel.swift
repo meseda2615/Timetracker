@@ -22,6 +22,7 @@ extension CategoryView {
         
         @Published var state = CategoryState()
         @Published var selectedItem: TimeCategoryModel? = nil
+        @Published var isOpenStartToTrakcScreen = false
         let categoryCount = 6
         
         
@@ -36,6 +37,7 @@ extension CategoryView.ViewModel {
         switch input {
         case .onAppear: getCategoryModel()
         case .onSelectItem(let item): updateSelectedAndShowDetails(item: item)
+        case .startToTrack: isOpenStartToTrakcScreen = true
         }
     }
 }

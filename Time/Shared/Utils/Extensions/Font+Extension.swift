@@ -12,6 +12,10 @@ extension Font {
         return Font.custom("Spartan-Bold", size: 18)
     }
     
+    public static var spartanTimeTitle: Font {
+        return Font.custom("Spartan-Bold", size: 26)
+    }
+    
     public static var spartanBody: Font {
         return Font.custom("Spartan-Regular", size: 14)
     }

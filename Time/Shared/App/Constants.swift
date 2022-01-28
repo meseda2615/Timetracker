@@ -23,6 +23,8 @@ enum Titles {
     
     static let howLongdidYouSleep = "How long did you sleep today?"
     static let whatDoYouWantToAdd = "What time do you want to add?"
+    
+    static let trackYorTime = "Track your time"
 }
 
 enum Messages {
@@ -40,5 +42,7 @@ enum Images {
     static let categoryDetailsImg = "categoryDetailsImg"
     
     static let menuIcon = "ic_menu"
+    
+    static let timeTrackerBGimg = "time_tracker_back"
 }
 
