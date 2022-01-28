@@ -63,11 +63,11 @@ extension UserStorageService {
     func getTodayCategoryModel() -> CategoryStorageModel {
         // try to get category and if category with today date we can update this
         if
-            let category =  try? defaults.get(objectType: CategoryStorageModel.self, forKey: Keys.Category.category),
-            category.date.isToday()
+            let model =  try? defaults.get(objectType: CategoryStorageModel.self, forKey: Keys.Category.category),
+            model.date.isToday()
         {
             
-            return category
+            return model
         }
         
         // if not create new category with today date
@@ -87,6 +87,13 @@ extension UserStorageService {
         
         saveCategoryModel(category: model)
     }
+    func updateCategoryModel(selectedCategory: String) {
+        var model = getTodayCategoryModel()
+        
+        model.selectedCategory = selectedCategory
+        
+        saveCategoryModel(category: model)
+    }
     
     
     func saveCategoryModel(category: CategoryStorageModel) {
@@ -99,11 +106,13 @@ extension UserStorageService {
     }
     
     func clearSelectedCategory(category: TimeCategory) {
+        
+        print("Clear selected category", category)
         var model = getTodayCategoryModel()
   
         if model.data.keys.contains(category.rawValue) {
             
-            model.data[category.rawValue] = 0
+            model.data[category.rawValue] = nil
         }
         
         saveCategoryModel(category: model)

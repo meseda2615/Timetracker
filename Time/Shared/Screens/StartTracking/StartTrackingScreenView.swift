@@ -89,7 +89,7 @@ struct StartTrackingScreenView: View {
                             dismiss()
                         }
                         isShowedCategory = true
-                    }
+                    }.padding(.bottom,20)
                 }
                 
             }

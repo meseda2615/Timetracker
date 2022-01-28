@@ -18,6 +18,8 @@ struct CategoryStorageModel {
     // category and tracked seconds
     var data: [String: Double] = [:]
     
+    var selectedCategory: String = "other"
+    
 }
 
 extension CategoryStorageModel: Codable {}
@@ -28,7 +30,7 @@ struct CategoryStateModel {
  
     var data: [TimeCategoryModel] = [
         
-        .init(category: .sleep, resultTime: "0",isSelected: true),
+        .init(category: .sleep, resultTime: "0"),
         .init(category: .work, resultTime: "0"),
         .init(category: .education, resultTime: "0"),
         .init(category: .health, resultTime: "0"),

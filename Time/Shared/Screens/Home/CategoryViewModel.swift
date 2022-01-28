@@ -50,24 +50,32 @@ extension CategoryView.ViewModel {
     
     private func getCategoryModel() {
         print("Get Model")
+        var newState = CategoryState()
         if let storageModel = userDefaultsStorage?.getTodayCategoryModel() {
 
             // need iteratiing and find category and write results from storage
             print("Storage Model", storageModel)
             
             var result: Double  = 0
+           
             for item in storageModel.data {
                 
                 if let firstindex = state.model.data.firstIndex(where: {$0.category.rawValue == item.key}) {
-                    state.model.data[firstindex].resultTime = item.value.asString(style: .full)
+                    newState.model.data[firstindex].resultTime = item.value.asString(style: .full)
                     result += item.value
                 }
                 
             }
             
-            state.model.totalResult = result.asString(style: .full)
+            newState.model.totalResult = result.asString(style: .full)
+            
+            if let firstindex = newState.model.data.firstIndex {$0.category.rawValue == storageModel.selectedCategory} {
+                newState.model.data[firstindex].isSelected = true
+            }
             
         }
+        
+        state = newState
         
     }
     
@@ -81,6 +89,8 @@ extension CategoryView.ViewModel {
         
         // and need navigate details
         selectedItem = item
+        
+        userDefaultsStorage?.updateCategoryModel(selectedCategory: item.category.rawValue)
     }
     
     private func clearDayModel() {
