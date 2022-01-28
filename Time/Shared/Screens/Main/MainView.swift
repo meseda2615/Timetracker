@@ -9,13 +9,18 @@ import SwiftUI
 
 struct MainView: View {
     
-    private let userDefaultsStorage: UserStorageService? = ServiceLocator.shared.getService()
+    
 
+    var categoryViewModel = CategoryView.ViewModel()
     
     @ObservedObject var viewModel: ViewModel
     @State var isNeedToShowSleep: Bool = false
+    
     // chekc user defaults and render this view when we update it
     @AppStorage(UserStorageService.Keys.OnBoarding.seenKey) var hasOnboardingSeen = false
+    
+    
+    
     
     var body: some View {
         
@@ -26,19 +31,19 @@ struct MainView: View {
                 
         } else {
             
-            CategoryView()
+            CategoryView(viewModel: categoryViewModel)
                 .onAppear {
                     if (viewModel.checkIfNeedShowSleepScreenToday()) {
                         isNeedToShowSleep = true
                     }
+                    UIApplication.shared.setStatusBarStyle(.darkContent, animated: true)
+                    categoryViewModel.setInputAction(.onAppear)
                 }
                 .fullScreenCover(isPresented: $isNeedToShowSleep, onDismiss: {
                     UIApplication.shared.setStatusBarStyle(.darkContent, animated: true)
+                    categoryViewModel.setInputAction(.onAppear)
                 }) {
-                    CategoryDetailsView(viewModel:
-                                            CategoryDetailsViewModel(
-                                                category: .sleep,
-                                                userDefaultsStorage: userDefaultsStorage))
+                    CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: .sleep))
                 }
             
         }

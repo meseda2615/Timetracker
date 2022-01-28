@@ -7,25 +7,77 @@
 
 import Foundation
 
-
-final class CategoryViewModel:  ObservableObject {
-    
-    // reRender View when set new value  wich contains this ViewModel like ObservedObject
-    
-    
-    private let userDefaultsStorage: UserStorageService?
-    
-    init(userDefaultsStorage: UserStorageService?) {
-        self.userDefaultsStorage = userDefaultsStorage
+extension CategoryView {
+    final class ViewModel:  ObservableObject {
+        
+        // reRender View when set new value  wich contains this ViewModel like ObservedObject
+        
+        
+        private let userDefaultsStorage: UserStorageService?
+        
+        init(userDefaultsStorage: UserStorageService? = ServiceLocator.shared.getService()) {
+            self.userDefaultsStorage = userDefaultsStorage
+            
+        }
+        
+        @Published var state = CategoryState()
+        @Published var selectedItem: TimeCategoryModel? = nil
+        let categoryCount = 6
         
         
     }
-    
-    
 }
 
-// MARK: - Show Sleep Screen Logic
 
-extension CategoryViewModel {
-    
+// MARK: - Input Actions
+
+extension CategoryView.ViewModel {
+    func setInputAction(_ input: CategoryAction) {
+        switch input {
+        case .onAppear: getCategoryModel()
+        case .onSelectItem(let item): updateSelectedAndShowDetails(item: item)
+        }
+    }
 }
+
+
+// MARK: - Get fro mStorage
+extension CategoryView.ViewModel {
+    
+    private func getCategoryModel() {
+        print("Get Model")
+        if let storageModel = userDefaultsStorage?.getTodayCategoryModel() {
+
+            // need iteratiing and find category and write results from storage
+            print("Storage Model", storageModel)
+            
+            var result: Double  = 0
+            for item in storageModel.data {
+                
+                if let firstindex = state.model.data.firstIndex(where: {$0.category.rawValue == item.key}) {
+                    state.model.data[firstindex].resultTime = item.value.asString(style: .full)
+                    result += item.value
+                }
+                
+            }
+            
+            state.model.totalResult = result.asString(style: .full)
+            
+        }
+        
+    }
+    
+    private func updateSelectedAndShowDetails(item: TimeCategoryModel) {
+        state.model.data.indexed().forEach { i,v in
+            state.model.data[i].isSelected = false
+        }
+        if let index = state.model.data.firstIndex(where: {$0.category == item.category}) {
+            state.model.data[index].isSelected = true
+        }
+        
+        // and need navigate details
+        selectedItem = item
+    }
+}
+
+

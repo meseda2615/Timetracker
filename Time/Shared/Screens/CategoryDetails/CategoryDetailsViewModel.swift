@@ -31,7 +31,7 @@ final class CategoryDetailsViewModel:  ObservableObject {
     
     init(
         category: TimeCategory,
-        userDefaultsStorage: UserStorageService?
+        userDefaultsStorage: UserStorageService? = ServiceLocator.shared.getService()
     ) {
         self.userDefaultsStorage = userDefaultsStorage
             self.category = category

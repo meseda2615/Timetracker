@@ -19,7 +19,7 @@ struct TimeApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView(viewModel: MainView.ViewModel(userDefaultsStorage: ServiceLocator.shared.getService()))
+            MainView(viewModel: MainView.ViewModel())
         }
     }
     

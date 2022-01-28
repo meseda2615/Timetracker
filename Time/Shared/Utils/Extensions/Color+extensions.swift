@@ -14,6 +14,10 @@ extension Color {
         return Color(UIColor(named: "gray") ?? .tintColor)
     }
     
+    public static var TlightGray: Color {
+        return Color(UIColor(named: "light_gray") ?? .tintColor)
+    }
+    
     public static var Tyellow: Color {
         return Color(UIColor(named: "yellow") ?? .tintColor)
     }

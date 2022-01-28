@@ -20,7 +20,7 @@ extension MainView {
         
         private let userDefaultsStorage: UserStorageService?
         
-        init(userDefaultsStorage: UserStorageService?) {
+        init(userDefaultsStorage: UserStorageService? = ServiceLocator.shared.getService()) {
             self.userDefaultsStorage = userDefaultsStorage
             
             

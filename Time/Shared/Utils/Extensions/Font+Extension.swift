@@ -19,4 +19,8 @@ extension Font {
     public static var spartanMedium: Font {
         return Font.custom("Spartan-Medium", size: 14)
     }
+    
+    public static var spartanSemiBold: Font {
+        return Font.custom("Spartan-SemiBold", size: 14)
+    }
 }

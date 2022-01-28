@@ -15,56 +15,97 @@ struct CategoryView: View {
     
     private let twoColumns = [GridItem(spacing: 12), GridItem(spacing: 12)]
     
+    @ObservedObject  var viewModel: ViewModel
     
     var body: some View {
         
-        
-        VStack(spacing: 12) {
+        ZStack {
+            Color.TlightGray.ignoresSafeArea()
             
-            HStack(alignment: .center) {
-                VStack(alignment: .leading) {
-                    Text("Super Title").font(.spartanTitle)
-                    Text("Sub title result").font(.system(size: 10))
-                }
-                Spacer()
-                Button(action: {}) {
-                    Image(systemName: "line.3.horizontal")
-                        .foregroundColor(Color.black)
-                        .font(.system(size: 28))
-                }
+            VStack(spacing: 12) {
                 
-                    
-            }.fillMaxWidth()
-            
-            LazyVGrid(columns: twoColumns,spacing: 20) {
-                ForEach(0 ..< 6) { item in
-                    
-                    VStack {
-                        Image(systemName: "\(item).circle")
-                            .screenHeight(0.24)
-                            .screenWidth(0.44)
+                HStack(alignment: .center) {
+                    VStack(alignment: .leading,spacing: 2) {
+                        Text(viewModel.state.model.date.toString(format: "MMMM dd, yyyy"))
+                            .font(.spartanTitle)
+                        Text("\(viewModel.state.model.totalResult) / 24 hours")
+                            .font(.system(size: 10))
+                    }
+                    Spacer()
+                    Button(action: {}) {
+                        Image(systemName: "line.3.horizontal")
+                            .foregroundColor(Color.black)
+                            .font(.system(size: 28))
                     }
                     
-                    .background(Color.purple)
+                    
+                }.fillMaxWidth()
+                
+                LazyVGrid(columns: twoColumns,spacing: 20) {
+                    
+                    ForEach(viewModel.state.model.data) { item in
+                        
+                        CategoryItemView(item: item) {
+                            viewModel.setInputAction(.onSelectItem(item: item))
+                        }
+                        
+                    }
                     
                 }
                 
+                TimeButtonView(text: "Start to track") {
+                    
+                }
             }
-            
-            TimeButtonView(text: "Start to track") {
+            .fullScreenCover(item: $viewModel.selectedItem, onDismiss: {
+                UIApplication.shared.setStatusBarStyle(.darkContent, animated: true)
+                viewModel.setInputAction(.onAppear)
+            }) { item in
+                CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: item.category))
+            }
+
+            .fillMaxSize()
+            .padding(.horizontal,16)
+        }
+    }
+}
+
+private struct CategoryItemView: View {
+    
+    var item: TimeCategoryModel
+    var onTapItem : () -> Void
+    
+    var body: some View {
+        GeometryReader { r in
+            VStack(alignment: .leading) {
+                Image(item.imageString)
+                    .resizable()
+                    
+                
+                VStack(alignment: .leading,spacing: 5) {
+                    Text("\(item.category.rawValue.capitalized)")
+                        .font(.spartanMedium)
+                    
+                    Text("\(item.resultTime)")
+                        .font(.system(size: 10))
+                }.padding(.leading,10)
+                    .padding(.vertical,12)
                 
             }
-        }.onAppear {
-            UIApplication.shared.setStatusBarStyle(.darkContent, animated: true)
         }
         
-        .fillMaxSize()
-        .padding(.horizontal,16)
+        .foregroundColor(item.isSelected ? Color.white : Color.black)
+        .screenHeight(0.24)
+        .screenWidth(0.44)
+        .background(item.isSelected ? Color.black : Color.white)
+        .cornerRadius(8)
+        .onTapGesture(perform: onTapItem)
     }
+    
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView()
+        CategoryView(viewModel: CategoryView.ViewModel())
     }
 }
