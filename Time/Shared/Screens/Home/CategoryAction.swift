@@ -12,4 +12,5 @@ enum CategoryAction {
     case onAppear
     case onSelectItem(item: TimeCategoryModel)
     case startToTrack
+    case clearDay
 }

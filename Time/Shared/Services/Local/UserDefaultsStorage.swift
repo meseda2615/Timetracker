@@ -87,4 +87,8 @@ extension UserStorageService {
         
         try? defaults.set(object: category, forKey: Keys.Category.category)
     }
+    
+    func clearModel() {
+        try? defaults.removeObject(forKey: Keys.Category.category)
+    }
 }

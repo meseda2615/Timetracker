@@ -17,6 +17,8 @@ struct CategoryView: View {
     
     @ObservedObject  var viewModel: ViewModel
     
+    @State private var showNotReadyAlert = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -26,7 +28,10 @@ struct CategoryView: View {
                     
                     CategoryNavBar(
                         date: viewModel.state.model.date,
-                        result: viewModel.state.model.totalResult)
+                        result: viewModel.state.model.totalResult,
+                        openStatsTap: {showNotReadyAlert = true},
+                        clearDayTap: {viewModel.setInputAction(.clearDay)}
+                    )
                     
                     LazyVGrid(columns: twoColumns,spacing: 20) {
                         
@@ -45,6 +50,7 @@ struct CategoryView: View {
                     }
                     
                     // nav link to push screens
+                    
                     NavigationLink(isActive: $viewModel.isOpenStartToTrakcScreen, destination: {StartTrackingScreenView()}, label: {EmptyView()})
                 }
                 .fullScreenCover(item: $viewModel.selectedItem, onDismiss: {
@@ -53,10 +59,18 @@ struct CategoryView: View {
                 }) { item in
                     CategoryDetailsView(viewModel: CategoryDetailsViewModel(category: item.category))
                 }
+                .alert(isPresented: $showNotReadyAlert) {
+                    Alert(title: Text("Not Ready"),
+                          message: Text("Please buy app to see"))
+                }
                 
                 .fillMaxSize()
                 .padding(.horizontal,16)
             }.navigationBarHidden(true)
+                .onAppear {
+                    UIApplication.shared.setStatusBarStyle(.darkContent, animated: true)
+                    viewModel.setInputAction(.onAppear)
+                }
         }
     }
 }
@@ -67,6 +81,9 @@ private struct CategoryNavBar: View {
     var date: Date
     var result: String
     
+    var openStatsTap: () -> Void
+    var clearDayTap: () -> Void
+    
     var body: some View {
         HStack(alignment: .center) {
             VStack(alignment: .leading,spacing: 2) {
@@ -76,7 +93,17 @@ private struct CategoryNavBar: View {
                     .font(.system(size: 10))
             }
             Spacer()
-            Button(action: {}) {
+
+            Menu {
+                Button(action: clearDayTap) {
+                    Text("Clear day")
+                    Image(systemName: "clear.fill")
+                }
+                Button(action: openStatsTap) {
+                    Text("Open Statistics")
+                    Image(systemName: "globe")
+                }
+            } label: {
                 Image(Images.menuIcon)
                     .resizable()
                     .renderingMode(.template)

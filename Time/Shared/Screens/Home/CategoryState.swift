@@ -22,6 +22,8 @@ enum TimeCategory: String {
     case health
     case family
     case mix
+    
+    case other
 }
 
 struct TimeCategoryModel: Identifiable {
@@ -41,7 +43,7 @@ struct TimeCategoryModel: Identifiable {
             res = "img_cat_education_family"
         case .health, .mix:
             res = "img_cat_mix_health"
- 
+        default: res = ""
         }
         
         return res

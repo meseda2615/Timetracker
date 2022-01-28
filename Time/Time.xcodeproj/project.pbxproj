@@ -44,13 +44,13 @@
 		055C02BE27A2CADE0036C640 /* CategoryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C02BD27A2CADE0036C640 /* CategoryState.swift */; };
 		055C02BF27A2CADE0036C640 /* CategoryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055C02BD27A2CADE0036C640 /* CategoryState.swift */; };
 		05B0ABC027A3C1F600B25F4E /* StartTrackingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0ABBF27A3C1F600B25F4E /* StartTrackingScreenView.swift */; };
+		05B0ABC227A3D62B00B25F4E /* StartTrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B0ABC127A3D62B00B25F4E /* StartTrackingViewModel.swift */; };
 		05CF0F552799B53400215CD8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F542799B53400215CD8 /* CategoryView.swift */; };
 		05CF0F572799B54E00215CD8 /* View+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F562799B54E00215CD8 /* View+extensions.swift */; };
 		05CF0F592799B56D00215CD8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F582799B56D00215CD8 /* MainViewModel.swift */; };
 		05CF0F5D2799B83F00215CD8 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F5C2799B83F00215CD8 /* UserDefaultsStorage.swift */; };
 		05CF0F602799B91C00215CD8 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F5F2799B91C00215CD8 /* ServiceLocator.swift */; };
 		05CF0F63279A88CB00215CD8 /* CategoryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F62279A88CB00215CD8 /* CategoryDetailsView.swift */; };
-		05CF0F65279A8CF700215CD8 /* ExtensionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F64279A8CF700215CD8 /* ExtensionTestView.swift */; };
 		05CF0F68279A95D300215CD8 /* CategoryStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F67279A95D300215CD8 /* CategoryStorageModel.swift */; };
 		05CF0F6B279A9A1C00215CD8 /* TimeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F6A279A9A1C00215CD8 /* TimeButtonView.swift */; };
 		05CF0F6D279AA5D400215CD8 /* TimeNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF0F6C279AA5D400215CD8 /* TimeNavBarView.swift */; };
@@ -93,13 +93,13 @@
 		055C02BA27A2C70C0036C640 /* CategoryAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAction.swift; sourceTree = "<group>"; };
 		055C02BD27A2CADE0036C640 /* CategoryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryState.swift; sourceTree = "<group>"; };
 		05B0ABBF27A3C1F600B25F4E /* StartTrackingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTrackingScreenView.swift; sourceTree = "<group>"; };
+		05B0ABC127A3D62B00B25F4E /* StartTrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTrackingViewModel.swift; sourceTree = "<group>"; };
 		05CF0F542799B53400215CD8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		05CF0F562799B54E00215CD8 /* View+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+extensions.swift"; sourceTree = "<group>"; };
 		05CF0F582799B56D00215CD8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		05CF0F5C2799B83F00215CD8 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		05CF0F5F2799B91C00215CD8 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		05CF0F62279A88CB00215CD8 /* CategoryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsView.swift; sourceTree = "<group>"; };
-		05CF0F64279A8CF700215CD8 /* ExtensionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTestView.swift; sourceTree = "<group>"; };
 		05CF0F67279A95D300215CD8 /* CategoryStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStorageModel.swift; sourceTree = "<group>"; };
 		05CF0F6A279A9A1C00215CD8 /* TimeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeButtonView.swift; sourceTree = "<group>"; };
 		05CF0F6C279AA5D400215CD8 /* TimeNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeNavBarView.swift; sourceTree = "<group>"; };
@@ -214,7 +214,6 @@
 				05CF0F532799B52800215CD8 /* Home */,
 				053A8FCC2791B3B600C9FE8F /* Main */,
 				053A8FCB2791B3A900C9FE8F /* OnBoarding */,
-				05CF0F64279A8CF700215CD8 /* ExtensionTestView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -255,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				05B0ABBF27A3C1F600B25F4E /* StartTrackingScreenView.swift */,
+				05B0ABC127A3D62B00B25F4E /* StartTrackingViewModel.swift */,
 			);
 			path = StartTracking;
 			sourceTree = "<group>";
@@ -454,7 +454,6 @@
 				05373A9327A13B9F002136E6 /* Ranges.swift in Sources */,
 				05CF0F7A279AD64900215CD8 /* CardDetailsModel.swift in Sources */,
 				055C02BE27A2CADE0036C640 /* CategoryState.swift in Sources */,
-				05CF0F65279A8CF700215CD8 /* ExtensionTestView.swift in Sources */,
 				053A8FC42791B35100C9FE8F /* Color+extensions.swift in Sources */,
 				05373A8E27A13A1B002136E6 /* MultiPickerView.swift in Sources */,
 				05CF0F72279AAB5700215CD8 /* SelectOnTapModifier.swift in Sources */,
@@ -465,6 +464,7 @@
 				053A8FC62791B35D00C9FE8F /* Font+Extension.swift in Sources */,
 				05CF0F572799B54E00215CD8 /* View+extensions.swift in Sources */,
 				05CF0F6B279A9A1C00215CD8 /* TimeButtonView.swift in Sources */,
+				05B0ABC227A3D62B00B25F4E /* StartTrackingViewModel.swift in Sources */,
 				05373A9727A144CC002136E6 /* Int+extensions.swift in Sources */,
 				053A8FB32791B20700C9FE8F /* TimeApp.swift in Sources */,
 				05CF0F68279A95D300215CD8 /* CategoryStorageModel.swift in Sources */,

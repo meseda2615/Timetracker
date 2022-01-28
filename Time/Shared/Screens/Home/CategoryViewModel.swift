@@ -38,6 +38,7 @@ extension CategoryView.ViewModel {
         case .onAppear: getCategoryModel()
         case .onSelectItem(let item): updateSelectedAndShowDetails(item: item)
         case .startToTrack: isOpenStartToTrakcScreen = true
+        case .clearDay: clearDayModel()
         }
     }
 }
@@ -79,6 +80,11 @@ extension CategoryView.ViewModel {
         
         // and need navigate details
         selectedItem = item
+    }
+    
+    private func clearDayModel() {
+        userDefaultsStorage?.clearModel()
+        state = CategoryState()
     }
 }
 

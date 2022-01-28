@@ -13,6 +13,10 @@ extension Date {
         return Calendar.current.isDateInToday(self)
     }
     
+    public static func secondsBetween(date1 d1: Date, date2 d2: Date) -> Int {
+        let dc = Calendar.current.dateComponents([.second], from: d1, to: d2)
+        return dc.second!
+    }
    
     
     // MARK: - Compute Date as String

@@ -12,6 +12,7 @@ enum Actions {
     static let start = "Start"
     static let saveAndStart = "Save and start"
     static let save = "Save"
+    static let stop = "Stop"
 }
 
 
@@ -25,6 +26,7 @@ enum Titles {
     static let whatDoYouWantToAdd = "What time do you want to add?"
     
     static let trackYorTime = "Track your time"
+    static let selectTheCategory = "Select the category!"
 }
 
 enum Messages {

@@ -23,7 +23,7 @@ extension UIApplication {
     }
 }
 
-class ContentHostingController: UIHostingController<ContentView> {
+class ContentHostingController: UIHostingController<MainView> {
       // 1. We change this variable
     private var currentStatusBarStyle: UIStatusBarStyle = .default
       // 2. To change this property of `UIHostingController`
